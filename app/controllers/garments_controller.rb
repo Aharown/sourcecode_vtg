@@ -1,6 +1,7 @@
 class GarmentsController < ApplicationController
+
   def index
-    
+
   end
 
   def show
