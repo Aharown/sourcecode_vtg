@@ -10,7 +10,6 @@
 require 'json'
 require 'open-uri'
 
-puts 'Cleaning database...'
+puts 'Cleaning database'
 Garment.destroy_all
 Booking.destroy_all
-
