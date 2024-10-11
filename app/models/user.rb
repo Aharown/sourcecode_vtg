@@ -7,3 +7,4 @@ class User < ApplicationRecord
          has_many :bookings
          has_many :garments
 end
+#comment
