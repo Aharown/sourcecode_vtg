@@ -27,7 +27,11 @@ class GarmentsController < ApplicationController
   end
 
   def destroy
-    @garment.destroy
+    if @garment.destroy
+      redirect_to garments_path, notice: "Listing has been deleted 🗑️."
+    else
+      redirect_to garments_path, alert: "Failed to delete the garment 🛑."
+    end
   end
 
   private
