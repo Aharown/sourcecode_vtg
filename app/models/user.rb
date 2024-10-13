@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :bookings
-         has_many :garments
+         has_many :garments, dependent: :nullify
 end
 #comment
