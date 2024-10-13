@@ -2,10 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
-  
+  root to: "pages#home"
+
   resources :garments
   resources :bookings, except: [:edit, :update]
   resources :reviews, except: [:edit, :update]
