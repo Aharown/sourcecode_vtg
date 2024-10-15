@@ -18,6 +18,7 @@ class GarmentsController < ApplicationController
       redirect_to @garment
     else
       render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -28,6 +29,7 @@ class GarmentsController < ApplicationController
       redirect_to @garment, notice: "Listing has been updated ✅."
     else
       render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
