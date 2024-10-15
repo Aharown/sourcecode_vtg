@@ -1,15 +1,19 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background: white;
   width: 100%;
   position: fixed;
   z-index: 3;
 }
-
+.navbar-lewagon #navbar-header {
+  text-align: center;
+  width: 100%;
+}
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
-
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+.pages-home .navbar {
+  display: none;
 }

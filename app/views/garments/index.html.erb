@@ -1,2 +1,101 @@
-<h1>Garments#index</h1>
-<p>Find me in app/views/garments/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ruby Garments</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+
+  <div id="top-div">
+
+    <div id="sub-top-div">
+    </div>
+
+    <div id="groups-div">
+      <div class="flexbox">
+
+        <div class="groups">
+          <img src="https://cdn-icons-png.freepik.com/512/14748/14748879.png?ga=GA1.1.1323452168.1728863374" alt="hats-logo" class="group-logos">
+          <p>hats</p>
+        </div>
+
+        <div class="groups">
+          <img src="https://cdn-icons-png.freepik.com/512/14748/14748870.png?ga=GA1.1.1323452168.1728863374" alt="watches-logo" class="group-logos">
+          <p>watches</p>
+        </div>
+
+        <div class="groups">
+          <img src="https://cdn-icons-png.freepik.com/512/14748/14748847.png?ga=GA1.1.1323452168.1728863374" alt="ties-logo" class="group-logos">
+          <p>ties</p>
+        </div>
+
+        <div class="groups">
+          <img src="https://cdn-icons-png.freepik.com/512/14748/14748767.png?ga=GA1.1.1323452168.1728863374" alt="jackets-logo" class="group-logos">
+          <p>jackets</p>
+        </div>
+
+        <div class="groups">
+          <img src="https://cdn-icons-png.freepik.com/512/14748/14748827.png?ga=GA1.1.1323452168.1728863374" alt="pants-logo" class="group-logos">
+          <p>pants</p>
+        </div>
+
+        <div class="groups">
+          <img src="https://cdn-icons-png.freepik.com/512/14748/14748903.png?ga=GA1.1.1323452168.1728863374" alt="shoes-logo" class="group-logos">
+          <p>shoes</p>
+        </div>
+
+        <div class="groups">
+          <img src="https://cdn-icons-png.freepik.com/512/9221/9221780.png?ga=GA1.1.1323452168.1728863374" alt="dresses-logo" class="group-logos">
+          <p>dresses</p>
+        </div>
+
+        <div class="groups">
+          <img src="https://cdn-icons-png.freepik.com/512/14748/14748888.png?ga=GA1.1.1323452168.1728863374" alt="glasses-logo" class="group-logos">
+          <p>glasses</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="empty-div">
+  </div>
+
+  <div id="feed">
+
+    <div id="recommended-garments">
+      <h2><strong>Recommended garments</strong></h2>
+
+      <div class="flexbox">
+
+        <% if @garments.exists? %>
+          <div class="grid">
+          <% @garments.each do |garment| %>
+            <%= render partial: "garment", locals: { garment: garment, show_all_photos: false} %>
+          <% end %>
+          </div>
+        <% end %>
+
+      </div>
+
+    </div>
+
+    <div id="recent-garments">
+      <h2><strong>Recent garments</strong></h2>
+
+      <% if @garments.exists? %>
+        <div class="grid">
+        <% @garments.each do |garment| %>
+          <%= render partial: "garment", locals: { garment: garment, show_all_photos: false} %>
+        <% end %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+
+
+</body>
