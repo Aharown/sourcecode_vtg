@@ -1,16 +1,24 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 <!DOCTYPE html>
 <html>
 <head>
   <title>Show Ruby Garments</title>
   <meta charset="UTF-8">
 </head>
+
 <body>
+
   <div id="top-div">
+
     <div id="sub-top-div">
     </div>
+
     <div id="groups-div">
       <div class="flexbox">
+
         <div class="groups">
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748879.png?ga=GA1.1.1323452168.1728863374" alt="hats-logo" class="group-logos">
           <p>hats</p>
@@ -57,6 +65,12 @@
   <div class="garment-details">
     <%= render @garment%>
   </div>
-</div>
-<h1>Garments#show</h1>
-<p>Find me in app/views/garments/show.html.erb</p>
+
+  <div id="empty-div"></div>
+
+  <div class="show-page-content">
+    <%= render partial: "garment", locals: { garment: @garment, show_all_photos: true } %>
+  </div>
+
+</body>
+</html>

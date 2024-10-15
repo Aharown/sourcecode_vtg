@@ -4,12 +4,17 @@
   <title>Ruby Garments</title>
   <meta charset="UTF-8">
 </head>
+
 <body>
+
   <div id="top-div">
+
     <div id="sub-top-div">
     </div>
+
     <div id="groups-div">
       <div class="flexbox">
+
         <div class="groups">
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748879.png?ga=GA1.1.1323452168.1728863374" alt="hats-logo" class="group-logos">
           <p>hats</p>
@@ -42,15 +47,21 @@
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748888.png?ga=GA1.1.1323452168.1728863374" alt="glasses-logo" class="group-logos">
           <p>glasses</p>
         </div>
+
       </div>
     </div>
   </div>
+
   <div id="empty-div">
   </div>
+
   <div id="feed">
+
     <div id="recommended-garments">
       <h2><strong>Recommended garments</strong></h2>
+
       <div class="flexbox">
+
         <% if @garments.exists? %>
           <div class="grid">
           <% @garments.each do |garment| %>
@@ -58,10 +69,14 @@
           <% end %>
           </div>
         <% end %>
+
       </div>
+
     </div>
+
     <div id="recent-garments">
       <h2><strong>Recent garments</strong></h2>
+
       <% if @garments.exists? %>
         <div class="grid">
         <% @garments.each do |garment| %>
@@ -69,6 +84,10 @@
         <% end %>
         </div>
       <% end %>
+
     </div>
   </div>
+
+
+
 </body>

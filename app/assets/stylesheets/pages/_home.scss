@@ -1,5 +1,4 @@
 // Specific CSS for your home-page
-
 .banner {
   background-size: cover;
   background-position: center;
@@ -95,128 +94,71 @@ body {
   position: relative;
   z-index: 1;
 }
-
-#empty-div {
-  width: 100%;
-  height: 180px;
+.banner h1 {
+  color: white;
 }
-
-#top-header {
-  text-align: center;
+.banner p {
+  color: white;
+  opacity: 0.7;
+  font-size: 20px;
 }
-
-#top-div {
-  border-bottom: 2px solid red;
-  box-shadow: 0px 3px 10px black;
-  width: 100%;
-  height: 180px;
-  position: fixed;
-  z-index: 2;
-  background-color: white;
+.btn-primary {
+  display: inline-block;
+  background-color: #800020;
+  padding: 16px 36px;
+  border-radius: 50px;
+  color: white;
 }
-
-#sub-top-div {
-  height: 80px;
-}
-
-#logo {
-  float: left;
-}
-
-#groups-div {
-  height: 95px;
-  overflow: auto;
-  border-top: 1px solid lightgray;
-}
-
- .groups {
-  width: 80px;
-  height: 75px;
-  float: left;
-  text-align: center;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.group-logos {
-  height: 50px;
-  width: 50px;
-}
-
-#feed {
-  height: calc(100% - 400px);
-  position: relative;
-}
-
-#recommended-garments {
-  height: 450px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid black;
-  overflow: auto;
-}
-
-#recommended-garments h1 {
-  margin-top: 10px;
-  margin-left: 5px;
-}
-
-.flexbox {
+.cards {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
-
-#recent-garments {
-  justify-content: space-evenly;
+.card {
+  width: 200px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgb(230, 230, 230);
+  border: 1px solid rgb(230, 230, 230);
+  padding: 20px;
+  text-align: center;
 }
-
-#recent-garments h1 {
-  margin-left: 5px;
+.card img {
+  width: 150px;
 }
-
-#recent-garments .box{
-  float: left;
-  margin-bottom: 50px;
-}
-
-.item-card {
-  height: 350px;
-  width: 300px;
-  margin: 15px;
-  float: left;
-}
-
-.img-box {
-  border: 1px solid gray;
-  height: 300px;
-  width: 300px;
-  border-radius: 10px;
-}
-
-.feed-img {
-  height: 298px;
-  width: 298px;
-  border-radius: 10px;
-}
-
-.feed-img :hover {
+.card p {
   opacity: 0.5;
 }
-
-.item-name {
-  height: 15px;
-  width: 150px;
-  float: left;
+.container {
+  width: 900px;
+  margin: auto;
+  margin-top: 20px;
 }
-
-.item-owner {
-  height: 12px;
+.footer {
+  text-align: center;
+  padding: 60px;
+  background-color: #2C2B2B;
 }
-
-.item-price-available {
-  height: 12px;
-  width: 145px;
-  text-align: right;
-  float: left;
+.footer a {
+  font-size: 30px;
+  color: #800020;
 }
-
-
+.footer p {
+  color: #6B6C6C;
+}
+.footer .fas {
+  color: #BF0F12;
+}
+/* Utilities */
+body {
+  font-family: Open Sans;
+}
+h1, h2, h3, h4 {
+  font-family: Poppins;
+}
+a {
+  text-decoration: none;
+}
+.text-center {
+  text-align: center;
+}
