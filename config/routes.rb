@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+
   authenticated :user do
     root to: "garments#index", as: :authenticated_root
   end
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   unauthenticated do
     root to: "pages#home", as: :unauthenticated_root
   end
-
 
   resources :garments
   resources :bookings, except: [:edit, :update]
