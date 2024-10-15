@@ -12,8 +12,102 @@
       <div class="container">
         <h1>Bring the runway straight to your door.</h1>
         <p>Shine ruby bright and stand out by renting rare luxury garments.</p>
-        <a class="btn-primary" href="#">Log in</a>
-        <a class="btn-primary" href="#">Sign up</a>
+        <%= link_to "Log in", new_user_session_path, class: "btn-primary" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn-primary" %>
+      </div>
+    </div>
+    <div class="container">
+      <h2 class="text-center">
+      </h2>
+      <div class="cards">
+        <div class="card">
+          <img src="images/apply.svg" alt>
+          <h4>Select</h4>
+          <p>Choose from our wide range of user curated listings.</p>
+        </div>
+        <div class="card">
+          <img src="images/learn.svg" alt>
+          <h4>Digital wardrobe</h4>
+          <p>Monetise your style and upload your own looks.</p>
+        </div>
+        <div class="card">
+          <img src="images/product.svg" alt>
+          <h4>Equalise</h4>
+          <p>Make the luxurious accessible by creating an account today.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="links">
+        <a href="#">
+          <i class="fab fa-fw fa-facebook-f"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-fw fa-github"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-fw fa-twitter"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-fw fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </body>
+=======
+
+<head>
+  <title>Ruby Garments</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+
+  <!-- <div id="left-div" position: fixed;>
+
+    <p>Messages</p>
+    <p>Bookings</p>
+
+  </div> -->
+
+
+  <div id="top-div">
+
+    <div id="sub-top-div">
+    </div>
+
+    <div id="groups-div">
+      <div class="flexbox">
+
+        <div class="groups">
+          <p>hats</p>
+        </div>
+
+        <div class="groups">
+          <p>rings</p>
+        </div>
+
+        <div class="groups">
+          <p>necklaces</p>
+        </div>
+
+        <div class="groups">
+          <img src="https://th.bing.com/th/id/OIP.OO8ESMVV-VN7Otl_hV3IvgHaHa?w=2700&h=2705&rs=1&pid=ImgDetMain" alt="jacket-logo" class="group-logos">
+          <p>jackets</p>
+        </div>
+
+        <div class="groups">
+          <p>shoes</p>
+        </div>
+
+        <div class="groups">
+          <p>socks</p>
+        </div>
+
+        <div class="groups">
+          <p>glasses</p>
+        </div>
+
       </div>
     </div>
     <div class="container">
@@ -51,5 +145,6 @@
         </a>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>

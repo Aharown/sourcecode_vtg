@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,44 +23,47 @@
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748879.png?ga=GA1.1.1323452168.1728863374" alt="hats-logo" class="group-logos">
           <p>hats</p>
         </div>
-
         <div class="groups">
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748870.png?ga=GA1.1.1323452168.1728863374" alt="watches-logo" class="group-logos">
           <p>watches</p>
         </div>
-
         <div class="groups">
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748847.png?ga=GA1.1.1323452168.1728863374" alt="ties-logo" class="group-logos">
           <p>ties</p>
         </div>
-
         <div class="groups">
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748767.png?ga=GA1.1.1323452168.1728863374" alt="jackets-logo" class="group-logos">
           <p>jackets</p>
         </div>
-
         <div class="groups">
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748827.png?ga=GA1.1.1323452168.1728863374" alt="pants-logo" class="group-logos">
           <p>pants</p>
         </div>
-
         <div class="groups">
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748903.png?ga=GA1.1.1323452168.1728863374" alt="shoes-logo" class="group-logos">
           <p>shoes</p>
         </div>
-
         <div class="groups">
           <img src="https://cdn-icons-png.freepik.com/512/9221/9221780.png?ga=GA1.1.1323452168.1728863374" alt="dresses-logo" class="group-logos">
           <p>dresses</p>
         </div>
-
         <div class="groups">
           <img src="https://cdn-icons-png.freepik.com/512/14748/14748888.png?ga=GA1.1.1323452168.1728863374" alt="glasses-logo" class="group-logos">
           <p>glasses</p>
         </div>
-
       </div>
     </div>
+  </div>
+  <div id="empty-div"></div>
+  <div class="show-page-content">
+    <%= render partial: "garment", locals: { garment: @garment, show_all_photos: true } %>
+  </div>
+</body>
+</html>
+<%= link_to "feed", root_path %>
+<div class="two-columns">
+  <div class="garment-details">
+    <%= render @garment%>
   </div>
 
   <div id="empty-div"></div>
