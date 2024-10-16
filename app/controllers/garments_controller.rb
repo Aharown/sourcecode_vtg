@@ -6,6 +6,7 @@ class GarmentsController < ApplicationController
   end
 
   def show
+    @garment = Garment.find(params[:id])
   end
 
   def new
