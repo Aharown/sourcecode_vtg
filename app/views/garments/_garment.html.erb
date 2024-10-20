@@ -1,33 +1,19 @@
 <%= link_to garment_path(garment) do %>
-    <% if show_all_photos %>
-      <% if garment.photos.attached? %>
-        <div class="show-page">
-          <div class="show-img-div">
-            <% garment.photos.each do |photo| %>
-              <%= image_tag url_for(photo), class: "show-img-box" %>
-            <% end %>
-          </div>
-          <div class="show-desc-div">
-            <h2 class="garment-title"><%= garment.title %></h2>
-            <p class="garment-desc"><%= garment.description %></p>
-            <p class="garment-brand"><%= garment.brand %></p>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-      <% if garment.photos.attached? %>
-        <div class="item-card">
-          <%= image_tag url_for(garment.photos.first), class: "img-box" %>
-          <div class="flexbox">
-            <div>
-              <h4 class="item-name"><%= garment.title %></h4>
-            </div>
-            <div>
-              <p class="item-price-available"><%= garment.rental_price%>€ per day</p>
-              <p style="color: gray" class="item-owner">Owner: Jacob</p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+  <% if garment.photos.attached? %>
+    <div class="card-garment">
+      <!-- Garment Image -->
+      <img src="<%= url_for(garment.photos.first) %>" class="card-garment-img" alt="<%= garment.title %>">
+
+      <!-- Garment Info Section -->
+      <div class="card-garment-infos">
+        <!-- Garment Title -->
+        <p class="garment-title"><%= garment.title %></p>
+        <!-- Rental Price -->
+        <p class="card-garment-pricing">€<%= garment.rental_price %> per day</p>
+        <p class="garment-size">Size: <%= garment.size %></p>
+        <!-- Brand -->
+        <p class="garment-brand"><%= garment.brand %></p>
+      </div>
+    </div>
+  <% end %>
 <% end %>

@@ -1,117 +1,266 @@
 _garments.scss
-body {
-  font-family: 'Times New Roman', Times, serif;
-  position: relative;
-  z-index: 1;
-}
-h1 {
-  color: rgba(237, 28, 0, 0.888);
-}
-#empty-div {
-  width: 100%;
-  height: 180px;
-}
-#top-header {
-  text-align: center;
-}
-#top-div {
-  border-bottom: 2px solid red;
-  box-shadow: 0px 3px 10px black;
-  width: 100%;
-  height: 180px;
-  position: fixed;
-  z-index: 2;
-  background-color: white;
-}
-#sub-top-div {
-  height: 80px;
-}
-#logo {
-  float: left;
-}
-#groups-div {
-  height: 95px;
-  overflow: auto;
-  border-top: 1px solid lightgray;
-}
- .groups {
-  width: 80px;
-  height: 75px;
-  float: left;
-  text-align: center;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-.group-logos {
-  height: 50px;
-  width: 50px;
-}
+
 #feed {
   height: calc(100% - 400px);
   position: relative;
-}
-#recommended-garments {
-  height: 450px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid black;
-  overflow: auto;
-}
-#feed h2 {
-  margin-top: 10px;
-  margin-left: 5px;
-  font-size: 40px;
-}
-.flexbox {
-  display: flex;
-  justify-content: space-evenly;
-}
-#recent-garments .box{
-  float: left;
-  margin-bottom: 50px;
-}
-.item-card {
-  height: 350px;
-  width: 300px;
-  margin: 15px;
-  float: left;
-  color: black;
-}
-.img-box {
-  border: 1px solid gray;
-  height: 300px;
-  width: 300px;
-  border-radius: 10px;
-}
-.item-name {
-  height: 30px;
-  width: 150px;
-  float: left;
-  font-size: 18px;
-}
-.item-card :hover {
-  color: red;
-}
-.feed-img {
-  height: 298px;
-  width: 298;
-  border-radius: 10px;
-}
-.feed-img :hover {
-  opacity: 0.5;
-}
-.item-owner {
-  height: 12px;
-  text-align: right;
-  color: gray;
-}
-.item-price-available {
-  height: 12px;
-  width: 145px;
-  text-align: right;
+  background-color: black;
 }
 
-.banner {
+.main-wrapper {
+  padding: 20px; /* Adjust the padding as needed */
+  margin: 0 auto; /* Center the wrapper */
+  max-width: 1200px; /* Set a max-width to limit the content width */
+  background-color: white;
+}
+
+.new-in-container {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  margin: 50px 0; /* Space above and below the container */
+}
+
+.new-in-container h3 {
+  margin: 0; /* Remove default margins */
+  padding: 0 10px; /* Add some padding for space around the text */
+  position: relative; /* For the pseudo-elements */
+  font-family: "Spectral", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.new-in-container::before,
+.new-in-container::after {
+  content: ""; /* Creates an empty box */
+  flex-grow: 1; /* Allows lines to grow and take available space */
+  height: 2px; /* Thickness of the lines */
+  background-color: #B31B1B; /* Color of the lines */
+  margin: 0 10px; /* Space between the lines and the heading */
+}
+
+.the-ruby-edit-container {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  margin: 50px 0; /* Space above and below the container */
+}
+
+.the-ruby-edit-container h3 {
+  margin: 0; /* Remove default margins */
+  padding: 0 10px; /* Add some padding for space around the text */
+  position: relative; /* For the pseudo-elements */
+  font-family: "Spectral", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.the-ruby-edit-container::before,
+.the-ruby-edit-container::after {
+  content: ""; /* Creates an empty box */
+  flex-grow: 1; /* Allows lines to grow and take available space */
+  height: 2px; /* Thickness of the lines */
+  background-color: #B31B1B; /* Color of the lines */
+  margin: 0 10px; /* Space between the lines and the heading */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns */
+  grid-gap: 100px; /* Space between grid items */
+  margin-top: 20px; /* Space above the grid */
+  background-color: white;
+}
+
+.card-category {
   background-size: cover;
   background-position: center;
-  padding: 200px 0;
+  height: 480px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 50px 20px;
+  padding-left: 359px;
+}
+
+.card-button {
+  margin-right: 15px;
+  display: inline-block;
+  background-color: #800020;
+  padding: 16px 36px;
+  border-radius: 50px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.card-title {
+  font-size: 36px;
+  opacity: 2;
+  margin: 0;
+  text-align: left; /* Align text to the left */
+  font-family: "Spectral", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.card-subtitle {
+  font-size: 18px;
+  margin-top: 5px; /* Adjust spacing between header and paragraph */
+  margin-bottom: 20px; /* Adjust spacing between paragraph and button */
+  text-align: left; /* Align text to the left */
+  opacity: 0.9;
+}
+
+.card-button:hover {
+  background-color: #FF0000;
+  color: #fff;
+}
+
+.card-category {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns header and paragraph to the left */
+  justify-content: center;
+  min-height: 400px; /* Adjust height to ensure button stays properly aligned */
+}
+
+.card-garment {
+  overflow: hidden;
+  background: white; /* Set background to white */
+  width: calc(100% - 20px); /* Adjust width to take up less space */
+  max-width: 250px; /* Limit the maximum width of each card */
+  height: 400px; /* Set a fixed height for the cards */
+  display: flex;
+  flex-direction: column; /* Ensure content is stacked vertically */
+  justify-content: space-between; /* Distribute the content evenly */
+  padding: 10px;
+  box-sizing: border-box;
+  border: none; /* No border */
+  margin: 0 auto; /* Center each card */
+}
+
+.card-garment:hover {
+  opacity: 0.4;
+}
+
+.card-garment > img {
+  width: 100%; /* Make the image take the full width of the card */
+  height: 60%; /* Set a fixed height for uniformity */
+  object-fit: contain; /* Cover ensures the image fills the area */
+  object-position: center;
+  margin-bottom: 1px;
+}
+
+.card-garment .card-garment-infos {
+  padding: 3px; /* Reduced padding for less height */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: flex-start;
+  position: relative;
+  flex-grow: 1;
+}
+
+.card-garment-infos .garment-title {
+  margin-top: 5px;
+  color: black;
+  text-align: left;
+  font-size: 16px;
+  font-family: "Spectral", serif;
+  font-weight: 600;
+  font-style: normal;
+  margin-bottom: 3px;
+}
+
+.card-garment-infos .card-garment-pricing {
+  font-size: 14px;
+  font-family: "Spectral", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 3px;
+}
+
+.card-garment .card-garment-infos .garment-size {
+  font-size: 14px !important;
+  font-family: "Spectral", serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  margin-top: 3px !important;
+  color: black !important;
+  margin-bottom: 3px;
+}
+
+.card-garment .card-garment-infos .garment-brand {
+  color: black;
+  font-size: 14px !important;
+  font-family: "Spectral", serif !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+}
+
+.card-garment-infos p {
+  font-size: 12px; /* Reduced font size for the owner */
+  opacity: .7;
+  margin: 0;
+  text-align: left;
+}
+
+.card-garment-infos {
+  padding: 5px; /* Reduced padding */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: flex-start; /* Align to the top */
+  position: relative;
+  flex-grow: 1;
+}
+
+.card-garment-pricing {
+  font-size: 5px; /* Adjusted font size for pricing */
+  font-weight: light;
+  color: black;
+  margin-left: 0; /* Removed margin left for alignment */
+}
+
+.card-garment-infos .card-garment-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.footer-index {
+  text-align: center;
+  padding: 60px;
+  background-color: black;
+}
+
+.footer-index a {
+  font-size: 30px;
+  color: #800020;
+}
+
+.footer-index p {
+  color: #6B6C6C;
+}
+
+.footer-index .fas {
+  color: #BF0F12;
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
