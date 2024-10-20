@@ -1,74 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Ruby Garments</title>
-  <meta charset="UTF-8">
-</head>
-<body>
-  <div id="top-div">
-    <div id="sub-top-div">
-    </div>
-    <div id="groups-div">
-      <div class="flexbox">
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748879.png?ga=GA1.1.1323452168.1728863374" alt="hats-logo" class="group-logos">
-          <p>hats</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748870.png?ga=GA1.1.1323452168.1728863374" alt="watches-logo" class="group-logos">
-          <p>watches</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748847.png?ga=GA1.1.1323452168.1728863374" alt="ties-logo" class="group-logos">
-          <p>ties</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748767.png?ga=GA1.1.1323452168.1728863374" alt="jackets-logo" class="group-logos">
-          <p>jackets</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748827.png?ga=GA1.1.1323452168.1728863374" alt="pants-logo" class="group-logos">
-          <p>pants</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748903.png?ga=GA1.1.1323452168.1728863374" alt="shoes-logo" class="group-logos">
-          <p>shoes</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/9221/9221780.png?ga=GA1.1.1323452168.1728863374" alt="dresses-logo" class="group-logos">
-          <p>dresses</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748888.png?ga=GA1.1.1323452168.1728863374" alt="glasses-logo" class="group-logos">
-          <p>glasses</p>
-        </div>
-      </div>
-    </div>
+<div id="feed">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('dennis-zhang-JfYu7iwHhe0-unsplash.jpg') %>');">
+    <h3 class="card-title">Make the everyday extraordinary</h3>
+    <p class="card-subtitle">Create a listing and bring your wardrobe to the world.</p>
+    <%= link_to "Create listing", new_garment_path, class: "btn-primary card-button" %>
   </div>
-  <div id="empty-div">
-  </div>
-  <div id="feed">
-    <div id="recommended-garments">
-      <h2><strong>Recommended garments</strong></h2>
-      <div class="flexbox">
-        <% if @garments.exists? %>
-          <div class="grid">
-          <% @garments.each do |garment| %>
-            <%= render partial: "garment", locals: { garment: garment, show_all_photos: false} %>
-          <% end %>
-          </div>
-        <% end %>
-      </div>
+
+  <!-- Main Wrapper for Headings and Garments -->
+  <div class="main-wrapper">
+    <div class="new-in-container">
+      <h3>New in</h3>
     </div>
-    <div id="recent-garments">
-      <h2><strong>Recent garments</strong></h2>
+
+    <div class="grid">
       <% if @garments.exists? %>
-        <div class="grid">
         <% @garments.each do |garment| %>
-          <%= render partial: "garment", locals: { garment: garment, show_all_photos: false} %>
+          <%= render partial: "garment", locals: { garment: garment, show_all_photos: false } %>
         <% end %>
-        </div>
+      <% else %>
+        <p>No garments available.</p>
+      <% end %>
+    </div>
+
+    <div class="the-ruby-edit-container">
+      <h3>The Ruby Edit</h3>
+    </div>
+
+    <div class="grid">
+      <% if @garments.exists? %>
+        <% @garments.each do |garment| %>
+          <%= render partial: "garment", locals: { garment: garment, show_all_photos: false } %>
+        <% end %>
+      <% else %>
+        <p>No garments available.</p>
       <% end %>
     </div>
   </div>
-</body>
+  <div class="footer-index">
+      <div class="links">
+        <a href="#">
+          <i class="fab fa-fw fa-facebook-f"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-fw fa-twitter"></i>
+        </a>
+        <a href="#">
+          <i class="fab fa-fw fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+</div>

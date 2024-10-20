@@ -4,10 +4,7 @@
   position: fixed;
   z-index: 3;
 }
-.navbar-lewagon #navbar-header {
-  text-align: center;
-  width: 100%;
-}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -17,4 +14,164 @@
 
 .pages-home .navbar {
   display: none;
+}
+
+.navbar-logo {
+  width: 50px;
+  height: auto;
+}
+
+.navbar-brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Spectral', serif;
+}
+
+.navbar .fa-gem {
+  color: #CE2029;
+}
+
+.navbar-brand-name {
+  color: black;
+}
+
+.search-form-control {
+  position: relative;
+}
+
+.search-form-control .btn {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  background-color: #f8f9fa;
+}
+
+.search-form-control .form-control {
+  height: 3.3rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #414A4C;
+  border-radius: 1.5rem;
+  background-color: #f8f9fa;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid #FE0000;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.search-container {
+  width: 500px;
+  margin-right: 20px;
+  margin-left: 40px;
+}
+
+.dropdown-container {
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.dropdown {
+  margin-right: 45px;
+}
+.dropdown .btn-outline-secondary {
+  height: 3.3rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border: 1px solid #414A4C;
+  border-radius: 1.5rem;
+  width: 250px;
+  text-align: left;
+  padding-left: 10px;
+  color: #4A4A4A;
+  background-color: transparent;
+  font-weight: light;
+}
+
+.dropdown .btn-outline-secondary:hover {
+  border: 1px solid #FE0000;
+  background-color: transparent;
+}
+
+.dropdown-menu {
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  background-color: white;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: lighter;
+  color: #A50021
+}
+
+.dropdown-item:focus {
+  background-color: transparent;
+  color: #4A4A4A;
+  outline: none;
+}
+
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+  color: #A50021
+}
+
+.dropdown .btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown .btn i {
+  margin-left: auto;
+  padding-left: 10px;
+  margin-left: -8px;
+  opacity: 0.6;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+#category {
+  display: none;
+}
+
+.circle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  border: 1px solid #414A4C;
+}
+
+.circle-icon i {
+  color: #414A4C;
+}
+
+.icon-large {
+  font-size: 24px;
+}
+
+.nav-item {
+  margin-right: 10px;
+}
+
+.fa-envelope {
+  margin-top: 3px;
+}
+
+.fa-plus {
+  margin-top: 2px;
+  margin-left: 3px;
+}
+
+.fa-user-circle {
+  margin-top: 2px;
+  margin-right: 6px;
 }
