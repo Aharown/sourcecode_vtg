@@ -1,28 +1,104 @@
-.show-page {
-  display: flex;
-  justify-content: space-between;
-}
-.show-img-div {
-  width: 60%;
-  height: calc(100vh - 180px);
-  border-right: 1px solid gray;
-  overflow: auto;
-}
-.show-img-box {
-  width: 400px;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 5px;
-  margin-inline-start: 25px;
-  margin-top: 15px;
-}
-.show-desc-div {
-  width: 40%;
-  height: calc(100vh - 180px);
-  color: black;
-}
-.show-desc-div p {
-  margin-inline-start: 20px;
-  margin-inline-end: 20px;
+_show.scss
+
+.show-page-container {
+  height: calc(100% - 400px);
+  position: relative;
+  background-color: white;
 }
 
+body.garments.show {
+  background-color: white; /* Apply background color only to the show page */
+}
+
+
+.main-wrapper-show {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.styles-container-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Four columns */
+  grid-gap: 20px; /* Space between grid items */
+  background-color: white;
+  padding-top: 80px; /* Space above the grid */
+}
+
+.styles-images-container {
+  display: flex;
+  flex-direction: column; /* Stack images vertically */
+  gap: 20px; /* Space between images */
+  padding-right: 20px; /* Space to the right if needed */
+  grid-column: 1;
+}
+
+.garment-image {
+  width: 100%; /* Full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the whole image is visible */
+}
+
+.styles-info-container {
+  z-index: 10;
+  word-wrap: break-word; /* Wrap long words */
+  overflow-wrap: break-word; /* Support wrapping */
+  white-space: normal; /* Allow wrapping of text */
+  max-width: 100%; /* Ensure it doesn't exceed the column width */
+  padding-top: 20px;
+}
+
+.styles-info-container h1 {
+  font-size: 28px; /* Adjust the font size if needed */
+  margin-bottom: 20px; /* Adds space between the title and the line */
+  padding-bottom: 10px; /* Space inside the element before the border */
+  border-bottom: 2px solid black; /* Black line under the title */
+  width: 100%; /* Ensures the line is the full width of the container */
+  display: block; /* Ensures it's treated as a block element */
+  box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+h1 {
+  font-family: "Spectral", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.styles-info-container .rent-button {
+  display: block; /* Ensures the button behaves like a block element */
+  width: 100%; /* Makes the button the full width of the container */
+  padding: 15px; /* Adds padding inside the button */
+  margin-top: 40px; /* Adds space between the button and the content above */
+  background-color: #800020; /* Button background color */
+  color: white; /* Button text color */
+  text-align: center; /* Center the text inside the button */
+  text-transform: uppercase; /* Optional: Makes the text uppercase */
+  font-size: 16px; /* Font size for the button text */
+  border: none; /* Removes default button border */
+  cursor: pointer; /* Changes the cursor to pointer on hover */
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.styles-info-container .rent-button:hover {
+  background-color: #FF0000; /* Slightly lighter black on hover */
+}
+
+
+
+@media (max-width: 1200px) {
+  .styles-container-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .styles-container-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .styles-container-grid {
+    grid-template-columns: 1fr;
+  }
+}

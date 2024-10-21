@@ -38,8 +38,13 @@
   display: inline-block;
   background-color: #800020;
   padding: 16px 36px;
-  border-radius: 50px;
+  border-radius: 5px;
   color: white;
+}
+
+.btn-primary:hover {
+  background-color: #FF0000;
+  color: #fff;
 }
 
 .cards {
@@ -102,4 +107,18 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+h4 {
+  font-family: "Spectral", serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #960018;
+}
+
+p {
+  font-family: "Spectral", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: solid black;
 }

@@ -1,53 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Show Ruby Garments</title>
-  <meta charset="UTF-8">
-</head>
-<body>
-  <div id="top-div">
-    <div id="sub-top-div">
-    </div>
-    <div id="groups-div">
-      <div class="flexbox">
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748879.png?ga=GA1.1.1323452168.1728863374" alt="hats-logo" class="group-logos">
-          <p>hats</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748870.png?ga=GA1.1.1323452168.1728863374" alt="watches-logo" class="group-logos">
-          <p>watches</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748847.png?ga=GA1.1.1323452168.1728863374" alt="ties-logo" class="group-logos">
-          <p>ties</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748767.png?ga=GA1.1.1323452168.1728863374" alt="jackets-logo" class="group-logos">
-          <p>jackets</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748827.png?ga=GA1.1.1323452168.1728863374" alt="pants-logo" class="group-logos">
-          <p>pants</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748903.png?ga=GA1.1.1323452168.1728863374" alt="shoes-logo" class="group-logos">
-          <p>shoes</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/9221/9221780.png?ga=GA1.1.1323452168.1728863374" alt="dresses-logo" class="group-logos">
-          <p>dresses</p>
-        </div>
-        <div class="groups">
-          <img src="https://cdn-icons-png.freepik.com/512/14748/14748888.png?ga=GA1.1.1323452168.1728863374" alt="glasses-logo" class="group-logos">
-          <p>glasses</p>
-        </div>
+<div class="show-page-container">
+  <div class="main-wrapper">
+    <div class="styles-container-grid">
+      <div class="styles-images-container">
+        <% if @garment.photos.attached? %>
+          <% @garment.photos.each do |photo| %>
+            <img src="<%= url_for(photo) %>" class="garment-image" alt="<%= @garment.title %>">
+          <% end %>
+        <% end %>
+      </div>
+      <div class="styles-info-container">
+        <!-- You can display additional information about the garment here -->
+        <h1><%= @garment.title %></h1>
+        <p>Price: €<%= @garment.rental_price %> per day</p>
+        <p>Size: <%= @garment.size %></p>
+        <p>Brand: <%= @garment.brand %></p>
+        <p>Details: <%= @garment.description %></p>
+
+        <button class="rent-button">Rent</button>
       </div>
     </div>
   </div>
-  <div id="empty-div"></div>
-  <div class="show-page-content">
-    <%= render partial: "garment", locals: { garment: @garment, show_all_photos: true } %>
-  </div>
-</body>
-</html>
+</div>
