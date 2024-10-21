@@ -2,7 +2,7 @@
   background: white;
   width: 100%;
   position: fixed;
-  z-index: 3;
+  z-index: 1000;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -74,6 +74,7 @@
 
 .dropdown {
   margin-right: 45px;
+  z-index: 100;
 }
 .dropdown .btn-outline-secondary {
   height: 3.3rem;
@@ -97,6 +98,7 @@
   width: 100%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   background-color: white;
+  z-index: 1500;
 }
 
 .dropdown-item {
