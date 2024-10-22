@@ -12,19 +12,19 @@
     <%= form.text_area :description, class: "form-control", rows: 3, placeholder: "Describe the garment" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :category, "Category" %>
-    <%= form.text_field :category, class: "form-control", placeholder: "Enter the category (e.g., Jackets)" %>
-  </div>
+<div class="form-group">
+  <%= form.label :category_id, "Category" %>
+  <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Select a Category" }, class: "form-control" %>
+</div>
 
   <div class="form-group">
     <%= form.label :brand, "Brand" %>
-    <%= form.text_field :brand, class: "form-control", placeholder: "Enter the brand (e.g., Nike)" %>
+    <%= form.text_field :brand, class: "form-control", placeholder: "e.g., Nike" %>
   </div>
 
   <div class="form-group">
     <%= form.label :size, "Size" %>
-    <%= form.text_field :size, class: "form-control", placeholder: "Enter the size (e.g., M, L)" %>
+    <%= form.text_field :size, class: "form-control", placeholder: "e.g., M, L" %>
   </div>
 
   <div class="form-group">
@@ -34,8 +34,9 @@
 
   <!-- File Uploads -->
   <div class="form-group">
-    <%= form.label :photos, "Upload Photos" %>
+    <%= form.label :photos, "Upload Photos (optional)" %>
     <%= form.file_field :photos, multiple: true, class: "form-control" %>
+    <small class="form-text text-muted">You can upload multiple photos of the garment.</small>
   </div>
 
   <div class="form-group">
