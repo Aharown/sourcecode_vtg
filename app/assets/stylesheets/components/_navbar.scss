@@ -3,6 +3,8 @@
   width: 100%;
   position: fixed;
   z-index: 1000;
+  border-bottom: 0.5px solid #BEBFC5; /* Add this line */
+  padding-bottom: 15px;
 }
 
 .navbar-lewagon .navbar-collapse {
