@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: ruby_garments_production
-  username: ruby_garments
-  password: <%= ENV["RUBY_GARMENTS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
