@@ -13,7 +13,7 @@ class GarmentsController < ApplicationController
   end
 
   def create
-    @garment = Garment.new(garment_params)
+    @garment = current_user.garments.build(garment_params) # Associate garment with the logged-in user
     if @garment.save
       redirect_to @garment
     else
@@ -43,7 +43,7 @@ class GarmentsController < ApplicationController
   private
 
   def garment_params
-    params.require(:garment).permit(:title, :description, :brand, :category, :photo)
+    params.require(:garment).permit(:title, :description, :category, :brand, :size, :rental_price, photos: [])
   end
 
   def set_garment

@@ -77,6 +77,7 @@ h1 {
   border: none; /* Removes default button border */
   cursor: pointer; /* Changes the cursor to pointer on hover */
   box-sizing: border-box; /* Ensures padding is included in the width */
+  transition: background-color 0.3s ease;
 }
 
 .styles-info-container .rent-button:hover {

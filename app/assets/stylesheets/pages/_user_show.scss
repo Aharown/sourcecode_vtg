@@ -1,0 +1,86 @@
+.user-show-page-container {
+  padding: 20px; /* Optional padding on the outside */
+  padding-bottom: 0; /* No padding at the bottom */
+}
+
+html, body {
+  height: 100%;
+}
+
+.user-main-wrapper {
+  margin: 0 auto; /* Center the wrapper */
+  max-width: 1200px; /* Set a max-width to limit the content width */
+  background-color: white;
+  padding-top: 80px; /* Space below the navbar */
+  padding-left: 40px;
+  padding-bottom: 0; /* Ensure no extra space at the bottom */
+  box-sizing: border-box;
+  min-height: calc(100vh - 20px); /* Adjust 80px based on the height of your navbar */
+}
+
+.user-info-container {
+  display: flex; /* Align profile photo and user details */
+  gap: 20px; /* Space between photo and details */
+}
+
+.user-profile-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+.user-details h2 {
+  margin-bottom: 5px; /* Adjust this to control space below the username */
+  margin-top: -10px; /* Use negative margin to pull it up closer to the navbar */
+}
+
+.user-products-tab-container {
+  margin-top: 20px; /* Space above garments list */
+  padding-right: 75px;
+}
+
+.user-follow-info {
+  margin-top: 10px; /* Adjust as needed */
+}
+
+.user-description {
+  margin-top: 10px; /* Adjust as needed */
+}
+
+/* Default star color */
+.user-rating .fas.fa-star {
+  color: #FF0800; /* Gold for filled stars */
+  font-size: 17px;
+}
+
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns */
+  grid-gap: 100px; /* Space between grid items */
+  margin-top: 20px; /* Space above the grid */
+  background-color: white;
+  padding-bottom: 0; /* No padding at the bottom */
+}
+
+@media (max-width: 1200px) {
+  .user-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .user-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .user-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,45 @@
+<div class="user-show-page-container">
+  <div class="user-main-wrapper">
+    <div class="user-info-container">
+      <div class="user-profile-photo">
+        <%= image_tag url_for(@user.profile_photo), alt: @user.username if @user.profile_photo.attached? %>
+      </div>
+      <div class="user-details">
+        <h2><%= @user.username %></h2>
+        <div class="user-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i> <!-- Empty star for 4/5 rating -->
+          <p>(300)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- New container for followers and description -->
+    <div class="user-follow-info">
+      <span class="followers-count"><strong>14.4K</strong> Followers</span> <!-- Simulated count -->
+      <span class="following-count"><strong>700</strong> Following</span>
+    </div>
+    <div class="user-description">
+      <p>Vintage Streetwear. East Meets West.</p>
+    </div>
+
+    <div class="user-products-tab-container">
+      <div class="user-grid">
+        <% @garments.each do |garment| %>
+          <div class="card-garment">
+            <%= image_tag url_for(garment.photos.first), alt: garment.title, class: 'garment-image' if garment.photos.attached? %>
+            <div class="card-garment-infos">
+              <h3 class="garment-title"><%= garment.title %></h3>
+              <p class="card-garment-pricing">Price: €<%= garment.rental_price %> per day</p>
+              <p class="garment-size">Size: <%= garment.size %></p>
+              <p class="garment-brand">Brand: <%= garment.brand %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
