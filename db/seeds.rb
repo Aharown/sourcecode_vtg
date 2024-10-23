@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'open-uri'
-Garment.destroy_all 
+Garment.destroy_all
 Category.destroy_all
 User.destroy_all
 
@@ -16,13 +16,21 @@ puts 'Seeding users...'
 
 users = [
   { username: 'debo', email: 'tahirisoa@hotmail.fr', password: 'password' },
-  { username: 'aaron', email: 'cheminko@hotmail.com', password: 'password' },
+  { username: 'sourcecode_vtg', email: 'cheminko@hotmail.com', password: 'password', profile_photo_url: Rails.root.join('app/assets/images/Aaron user pp.png') },
   { username: 'henri', email: 'henri.clau.bellet@gmail.com', password: 'password' },
 ]
 
 users.each do |user_data|
-  User.create!(username: user_data[:username], email: user_data[:email], password: user_data[:password])
-  puts "User #{user_data[:username]} created!"
+  user = User.create!(username: user_data[:username], email: user_data[:email], password: user_data[:password])
+
+  # Attach profile photo if provided
+  if user_data[:profile_photo_url].present?
+    file = File.open(user_data[:profile_photo_url]) # For local files
+    user.profile_photo.attach(io: file, filename: File.basename(user_data[:profile_photo_url]), content_type: 'image/png')
+    puts "User #{user_data[:username]} created with a profile photo!"
+  else
+    puts "User #{user_data[:username]} created without a profile photo."
+  end
 end
 
 
