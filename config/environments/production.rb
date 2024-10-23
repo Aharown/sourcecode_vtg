@@ -22,7 +22,13 @@ Rails.application.configure do
 
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
   # config.public_file_server.enabled = false
+# config/environments/production.rb
+  Rails.application.configure do
+  # Other configurations...
 
+  # Use Cloudinary for Active Storage
+    config.active_storage.service = :cloudinary
+  end
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
@@ -86,7 +92,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
+  config.active_storage.service = :cloudinary
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
