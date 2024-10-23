@@ -1,0 +1,37 @@
+.log-in-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background-color: #800020;
+  padding: 16px 36px;
+  color: white;
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.flexbox-login {
+  position: relative;
+  z-index: 2;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+.informations-card {
+  position: relative;
+  z-index: 2;
+  width: 400px;
+  border: 1px solid black;
+  padding: 40px;
+  box-shadow: 5px 5px 7px black;
+  border-radius: 8px;
+  background-color: white;
+  color: #800020;
+}
+.background {
+  z-index: 1;
+  position: fixed;
+  background-color: gray;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(dennis-zhang-JfYu7iwHhe0-unsplash.jpg);
+}
