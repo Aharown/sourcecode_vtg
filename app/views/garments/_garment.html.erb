@@ -5,7 +5,7 @@
       <% if show_all_photos %>
         <!-- Show all photos for the garment -->
         <% garment.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, class:"card-garment-img", alt: garment.title %>
+          <%= cl_image_tag photo.key, class: 'card-garment-img', alt: garment.title %>
         <% end %>
       <% else %>
         <!-- Show only the first photo on the index page -->
