@@ -25,10 +25,19 @@ class GarmentsController < ApplicationController
   end
 
   def update
+    @garment = Garment.find(params[:id])
+    existing_photos = @garment.photos
+
     if @garment.update(garment_params)
-      redirect_to @garment, notice: "Listing has been updated ✅."
+      # Check if photos should be removed
+      if params[:remove_photos]
+        params[:remove_photos].each do |photo_id|
+          @garment.photos.find(photo_id).purge # This will remove the selected photos
+        end
+      end
+      redirect_to @garment, notice: 'Garment was successfully updated.'
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
   end
 

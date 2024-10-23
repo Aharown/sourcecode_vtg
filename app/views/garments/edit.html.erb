@@ -1,2 +1,2 @@
-<h1>Garments#edit</h1>
-<p>Find me in app/views/garments/edit.html.erb</p>
+<% content_for :body_class, 'form-page' %>
+<%= render 'form', garment: @garment, mode: 'Editing' %>
