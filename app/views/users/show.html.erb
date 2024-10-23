@@ -2,7 +2,7 @@
   <div class="user-main-wrapper">
     <div class="user-info-container">
       <div class="user-profile-photo">
-        <%= image_tag url_for(@user.profile_photo), alt: @user.username if @user.profile_photo.attached? %>
+        <%= cl_image_tag @user.profile_photo.key, alt: @user.username if @user.profile_photo.attached? %>
       </div>
       <div class="user-details">
         <h2><%= @user.username %></h2>
@@ -31,7 +31,7 @@
         <% @garments.each do |garment| %>
          <%= link_to garment_path(garment), class: 'card-garment-link' do %>
           <div class="card-garment">
-            <%= image_tag url_for(garment.photos.first), alt: garment.title, class: 'garment-image' if garment.photos.attached? %>
+            <%= cl_image_tag garment.photos.first.key, alt: garment.title, class: 'garment-image' if garment.photos.attached? %>
             <div class="card-garment-infos">
               <h3 class="garment-title"><%= garment.title %></h3>
               <p class="card-garment-pricing">Price: €<%= garment.rental_price %> per day</p>
