@@ -5,11 +5,11 @@
       <% if show_all_photos %>
         <!-- Show all photos for the garment -->
         <% garment.photos.each do |photo| %>
-          <img src="<%= url_for(photo) %>" class="card-garment-img" alt="<%= garment.title %>">
+          <%= image_tag photo.service_url, class="card-garment-img" alt="<%= garment.title %>">
         <% end %>
       <% else %>
         <!-- Show only the first photo on the index page -->
-        <img src="<%= url_for(garment.photos.first) %>" class="card-garment-img" alt="<%= garment.title %>">
+        <%= image_tag garment.photos.first.service_url, class="card-garment-img", alt: garment.title %>
       <% end %>
 
       <!-- Garment Info Section -->
