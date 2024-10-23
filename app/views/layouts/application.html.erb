@@ -17,9 +17,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
-    <body class="<%= "#{controller_name}-#{action_name} #{controller_name == 'garments' && action_name == 'index' ? 'index-page' : ''}" %>">
+    <body class="<%= "#{controller_name}-#{action_name} #{controller_name == 'garments' && action_name == 'index' ? 'index-page' : ''} #{controller_name == 'garments' && %w[new edit].include?(action_name) ? 'form-page' : ''}" %>">
       <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
-      <%= render 'shared/navbar' %>
+        <%= render 'shared/navbar' %>
       <% end %>
 
       <%= render "shared/flashes" %>

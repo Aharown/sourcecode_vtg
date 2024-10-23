@@ -1,0 +1,100 @@
+  <div class="form-main-styles-container">
+    <div class="form-container-grid">
+      <div class="header">
+        <h2><%= mode %></h2>
+      </div>
+      <%= form_with(model: @garment, local: true, html: { multipart: true }) do |form| %>
+        <div class="form-group">
+          <h4><%= form.label :title, "Title" %></h4>
+          <%= form.text_field :title, class: "form-control", placeholder: "Enter the garment title" %>
+        </div>
+
+        <div class="form-group">
+          <h4><%= form.label :description, "Description" %></h4>
+          <%= form.text_area :description, class: "form-control", rows: 3, placeholder: "Describe the garment" %>
+        </div>
+
+      <div class="form-group">
+        <h4><%= form.label :category_id, "Category" %></h4>
+        <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Select a Category" }, class: "form-control" %>
+      </div>
+
+        <div class="form-group">
+          <h4><%= form.label :brand, "Brand" %></h4>
+          <%= form.text_field :brand, class: "form-control", placeholder: "e.g., Nike" %>
+        </div>
+
+        <div class="form-group">
+          <h4><%= form.label :size, "Size" %></h4>
+          <%= form.text_field :size, class: "form-control", placeholder: "e.g., M, L" %>
+        </div>
+
+        <div class="form-group">
+          <h4><%= form.label :rental_price, "Rental Price (€)" %></h4>
+          <%= form.number_field :rental_price, class: "form-control", placeholder: "Enter the rental price per day" %>
+        </div>
+
+        <!-- Display existing photos if they are attached -->
+        <% if garment.photos.attached? %>
+          <div class="existing-photos">
+            <h4>Existing Photos:</h4>
+            <% garment.photos.each do |photo| %>
+              <div class="photo">
+                <%= image_tag url_for(photo), alt: garment.title, class: 'garment-image-form' %>
+                <%= check_box_tag "remove_photos[]", photo.id %>
+                <%= label_tag "remove_photos_#{photo.id}", "Remove this photo" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <!-- File Uploads -->
+        <div class="form-group-photos">
+          <%= form.label :photos, "Upload Photos (optional)" %>
+          <%= form.file_field :photos, multiple: true, class: "form-control", id: "garment_photos" %>
+          <small class="form-text text-muted">You can upload up to 4 photos of the garment.</small>
+          <div id="preview-container"></div>
+        </div>
+
+        <div class="form-group-button">
+          <%= form.submit (garment.persisted? ? "Save changes" : "Post"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+      <script>
+  document.getElementById('garment_photos').addEventListener('change', function(event) {
+    const files = event.target.files;
+    const previewContainer = document.getElementById('preview-container');
+
+    // Clear previous previews
+    previewContainer.innerHTML = '';
+
+    // Limit to maximum of 4 files
+    const maxFiles = 4;
+    const fileArray = Array.from(files).slice(0, maxFiles);
+
+    // Add newly uploaded files to the preview
+    fileArray.forEach(file => {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.alt = file.name;
+        img.className = 'garment-image'; // add any classes you need
+        previewContainer.appendChild(img);
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Only show existing photos if they are attached and not already in the preview
+    const existingPhotos = document.querySelectorAll('.existing-photos .photo img');
+    existingPhotos.forEach(photo => {
+      const img = document.createElement('img');
+      img.src = photo.src;
+      img.alt = photo.alt;
+      img.className = 'garment-image'; // ensure it has the same styling
+      previewContainer.appendChild(img);
+    });
+  });
+</script>

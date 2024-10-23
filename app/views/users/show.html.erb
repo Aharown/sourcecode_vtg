@@ -29,6 +29,7 @@
     <div class="user-products-tab-container">
       <div class="user-grid">
         <% @garments.each do |garment| %>
+         <%= link_to garment_path(garment), class: 'card-garment-link' do %>
           <div class="card-garment">
             <%= image_tag url_for(garment.photos.first), alt: garment.title, class: 'garment-image' if garment.photos.attached? %>
             <div class="card-garment-infos">
@@ -38,6 +39,7 @@
               <p class="garment-brand">Brand: <%= garment.brand %></p>
             </div>
           </div>
+          <% end %>
         <% end %>
       </div>
     </div>

@@ -1,20 +1,24 @@
 _show.scss
 
 .show-page-container {
-  height: calc(100% - 400px);
-  position: relative;
   background-color: white;
+  padding: 20px; /* Optional padding on the outside */
+  padding-bottom: 0;
 }
 
-body.garments.show {
-  background-color: white; /* Apply background color only to the show page */
+html, body {
+  height: 100%;
 }
 
 
 .main-wrapper-show {
-  padding: 20px;
   margin: 0 auto;
+  background-color: white;
   max-width: 1200px;
+  box-sizing: border-box;
+  padding-top: 80px; /* Space below the navbar */
+  padding-left: 40px;
+  padding-bottom: 0; /* Ensure no extra space at the bottom */
 }
 
 .styles-container-grid {
@@ -23,6 +27,7 @@ body.garments.show {
   grid-gap: 20px; /* Space between grid items */
   background-color: white;
   padding-top: 80px; /* Space above the grid */
+  min-height: calc(100vh - 20px); /* Adjust 80px based on the height of your navbar */
 }
 
 .styles-images-container {
@@ -65,18 +70,20 @@ h1 {
 }
 
 .styles-info-container .rent-button {
-  display: block; /* Ensures the button behaves like a block element */
-  width: 100%; /* Makes the button the full width of the container */
-  padding: 15px; /* Adds padding inside the button */
-  margin-top: 40px; /* Adds space between the button and the content above */
-  background-color: #800020; /* Button background color */
-  color: white; /* Button text color */
-  text-align: center; /* Center the text inside the button */
-  text-transform: uppercase; /* Optional: Makes the text uppercase */
-  font-size: 16px; /* Font size for the button text */
-  border: none; /* Removes default button border */
-  cursor: pointer; /* Changes the cursor to pointer on hover */
-  box-sizing: border-box; /* Ensures padding is included in the width */
+  display: block;
+  width: 100%;
+  height: 35px; /* Desired button height */
+  padding: 0; /* Remove padding */
+  line-height: 30px; /* Vertically center the text */
+  margin-top: 20px;
+  background-color: #800020;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
   transition: background-color 0.3s ease;
 }
 

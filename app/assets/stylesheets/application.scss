@@ -113,7 +113,88 @@ body.index-page {
   background-color: black;
 }
 
-body, html {
-  margin: 0;
-  padding: 0;
+body.form-page {
+  background-color: #ffffff; // Set background to white for the form page
 }
+
+.form-main-styles-container {
+  margin: 0px auto; // Reduce top margin to minimize push
+  max-width: 800px; // Maximum width to limit the form size
+  background-color: white; // Light background color for the form
+  padding-top: 50px;
+  padding-bottom: 80px; /* Adjust this value as needed */
+}
+
+.header {
+  margin-bottom: 20px; // Space below the header
+  padding: 75px 0; // Add some vertical padding to the header
+  h2 {
+    display: flex;
+    border-bottom: 0.3px solid #C0C0C0; // Line under the title
+    font-family: "Spectral", serif;
+    font-weight: 700;
+    font-style: normal;
+    margin: 0; // Remove default margin
+    padding-bottom: 10px; // Space between header and line
+  }
+}
+
+.form-label {
+  font-weight: bold; // Bold labels
+  margin-bottom: 5px; // Space between label and input
+  font-size: 18px;
+}
+
+.form-control {
+  border-radius: 4px; /* Rounded corners for inputs */
+  border: 1px solid black; /* Border color */
+  padding: 10px; /* Padding for inputs */
+}
+
+
+/* Style for buttons */
+.btn-primary {
+  background-color: #800020;
+  color: white;
+  transition: background-color 0.3s ease;
+  border-color: #800020 !important;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #FF0000; /* Slightly lighter black on hover */
+}
+
+
+.form-group h4 {
+  font-size: 1.25rem; /* You can adjust this size as needed */
+  font-weight: bold;  /* Bold labels for emphasis */
+   /* Add spacing below the label */
+  margin-top: 30px;
+  color: black;
+}
+
+.existing-photos h4 {
+  font-size: 1.25rem; /* You can adjust this size as needed */
+  font-weight: bold;  /* Bold labels for emphasis */
+   /* Add spacing below the label */
+  margin-top: 30px;
+  color: black;
+}
+
+.form-group-photos {
+  margin-top: 30px; /* Adjust the value as needed */
+}
+
+.form-group-button {
+  margin: 30px; /* Adjust the value as needed */
+}
+
+.garment-image-form {
+  max-width: 150px; /* Set maximum width to make images smaller */
+  max-height: 150px; /* Set maximum height */
+  object-fit: cover; /* Ensure images maintain their aspect ratio */
+  margin: 10px; /* Add margin for spacing */
+}
+
+// Add styles for preview and existing photos as necessary
