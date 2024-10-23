@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'open-uri'
+Garment.destroy_all 
+Category.destroy_all
+User.destroy_all
 
 puts 'Seeding users...'
 

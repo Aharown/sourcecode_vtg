@@ -4,7 +4,7 @@
       <div class="styles-images-container">
         <% if @garment.photos.attached? %>
           <% @garment.photos.each do |photo| %>
-            <%= image_tag photo.service_url, class="garment-image" alt="<%= @garment.title %>">
+            <%= cl_image_tag photo.key, class:"garment-image", alt: @garment.title %>
           <% end %>
         <% end %>
       </div>
