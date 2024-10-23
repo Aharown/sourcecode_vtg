@@ -26,20 +26,28 @@ class GarmentsController < ApplicationController
 
   def update
     @garment = Garment.find(params[:id])
-    existing_photos = @garment.photos
 
-    if @garment.update(garment_params)
-      # Check if photos should be removed
-      if params[:remove_photos]
-        params[:remove_photos].each do |photo_id|
-          @garment.photos.find(photo_id).purge # This will remove the selected photos
-        end
+    # Attach new photos if any are uploaded
+    if params[:garment][:photos].present?
+      params[:garment][:photos].each do |photo|
+        @garment.photos.attach(photo)
       end
+    end
+
+    # Remove photos if any are selected for removal
+    if params[:remove_photos].present?
+      params[:remove_photos].each do |photo_id|
+        @garment.photos.find(photo_id).purge
+      end
+    end
+
+    if @garment.update(garment_params.except(:photos))
       redirect_to @garment, notice: 'Garment was successfully updated.'
     else
       render :edit
     end
   end
+
 
   def destroy
     @garment = Garment.find(params[:id])

@@ -5,37 +5,43 @@
     </div>
 
     <%= form_with(model: @garment, local: true, html: { multipart: true }) do |form| %>
+      <!-- Title -->
       <div class="form-group">
         <h4><%= form.label :title, "Title" %></h4>
         <%= form.text_field :title, class: "form-control", placeholder: "Enter the garment title" %>
       </div>
 
+      <!-- Description -->
       <div class="form-group">
         <h4><%= form.label :description, "Description" %></h4>
         <%= form.text_area :description, class: "form-control", rows: 3, placeholder: "Describe the garment" %>
       </div>
 
+      <!-- Category -->
       <div class="form-group">
         <h4><%= form.label :category_id, "Category" %></h4>
         <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Select a Category" }, class: "form-control" %>
       </div>
 
+      <!-- Brand -->
       <div class="form-group">
         <h4><%= form.label :brand, "Brand" %></h4>
         <%= form.text_field :brand, class: "form-control", placeholder: "e.g., Nike" %>
       </div>
 
+      <!-- Size -->
       <div class="form-group">
         <h4><%= form.label :size, "Size" %></h4>
         <%= form.text_field :size, class: "form-control", placeholder: "e.g., M, L" %>
       </div>
 
+      <!-- Rental Price -->
       <div class="form-group">
         <h4><%= form.label :rental_price, "Rental Price (€)" %></h4>
         <%= form.number_field :rental_price, class: "form-control", placeholder: "Enter the rental price per day" %>
       </div>
 
-      <!-- Display existing photos if they are attached -->
+      <!-- Display existing photos -->
       <% if @garment.photos.attached? %>
         <div class="existing-photos">
           <h4>Existing Photos:</h4>
@@ -56,47 +62,43 @@
         <small class="form-text text-muted">You can upload up to 4 photos of the garment.</small>
       </div>
 
+      <!-- Preview Container -->
+      <div id="preview-container" class="photo-preview"></div>
+
       <!-- Submit Button -->
       <div class="form-group-button">
         <%= form.submit (@garment.persisted? ? "Save changes" : "Post"), class: "btn btn-primary" %>
       </div>
-    <% end %> <!-- This ends the form_with block -->
+    <% end %>
   </div>
 </div>
-
 <script>
-  document.getElementById('garment_photos').addEventListener('change', function(event) {
-    const files = event.target.files;
-    const previewContainer = document.getElementById('preview-container');
+document.addEventListener('turbo:load', function() {
+  const photoInput = document.getElementById('garment_photos');
+  const previewContainer = document.getElementById('preview-container');
 
-    // Clear previous previews
+  photoInput.addEventListener('change', function(event) {
+    const files = Array.from(event.target.files);
+
+    // Clear previous previews - keep existing ones
     previewContainer.innerHTML = '';
 
-    // Limit to maximum of 4 files
+    // Limit the number of files to 4
     const maxFiles = 4;
-    const fileArray = Array.from(files).slice(0, maxFiles);
+    const selectedFiles = files.slice(0, maxFiles);
 
-    // Add newly uploaded files to the preview
-    fileArray.forEach(file => {
+    // Preview newly uploaded photos
+    selectedFiles.forEach(file => {
       const reader = new FileReader();
       reader.onload = function(e) {
         const img = document.createElement('img');
         img.src = e.target.result;
         img.alt = file.name;
-        img.className = 'garment-image'; // add any classes you need
+        img.className = 'garment-image';
         previewContainer.appendChild(img);
       };
       reader.readAsDataURL(file);
     });
-
-    // Only show existing photos if they are attached and not already in the preview
-    const existingPhotos = document.querySelectorAll('.existing-photos .photo img');
-    existingPhotos.forEach(photo => {
-      const img = document.createElement('img');
-      img.src = photo.src;
-      img.alt = photo.alt;
-      img.className = 'garment-image'; // ensure it has the same styling
-      previewContainer.appendChild(img);
-    });
   });
+});
 </script>
