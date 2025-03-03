@@ -1,5 +1,6 @@
 class GarmentsController < ApplicationController
   before_action :set_garment, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @garments = Garment.all
