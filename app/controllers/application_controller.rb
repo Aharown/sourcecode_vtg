@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   # app/controllers/application_controller.rb
-  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_categories
   before_action :set_devise_variables

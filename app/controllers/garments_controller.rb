@@ -1,6 +1,6 @@
 class GarmentsController < ApplicationController
   before_action :set_garment, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show, :new]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @garments = Garment.all
@@ -28,14 +28,12 @@ class GarmentsController < ApplicationController
   def update
     @garment = Garment.find(params[:id])
 
-    # Attach new photos if any are uploaded
     if params[:garment][:photos].present?
       params[:garment][:photos].each do |photo|
         @garment.photos.attach(photo)
       end
     end
 
-    # Remove photos if any are selected for removal
     if params[:remove_photos].present?
       params[:remove_photos].each do |photo_id|
         @garment.photos.find(photo_id).purge
@@ -68,4 +66,14 @@ class GarmentsController < ApplicationController
   def set_garment
     @garment = Garment.find(params[:id])
   end
+
+  def require_login
+    unless user_signed_in?
+      respond_to do |format|
+        format.html { render partial: "devise/sessions/modal", status: :unauthorized }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("modal-container", partial: "devise/sessions/modal") }
+      end
+    end
+  end
+
 end
