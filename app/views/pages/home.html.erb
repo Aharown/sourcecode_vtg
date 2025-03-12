@@ -15,7 +15,7 @@
       <div class="container">
         <h1>Bring the runway straight to your door.</h1>
         <p>Shine ruby bright and stand out by renting rare luxury garments.</p>
-        <%= link_to "Login", garments_path, class: "btn-primary" %>
+        <%= link_to "Login", garments_path, class: "btn-primary login-trigger" %>
         <%= link_to "Sign up", garments_path, class: "btn-primary" %>
       </div>
     </div>
@@ -52,3 +52,4 @@
     </div>
   </body>
 </html>
+<%= render 'devise/sessions/modal' %>
