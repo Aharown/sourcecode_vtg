@@ -7,23 +7,23 @@ _garments.scss
 }
 
 .main-wrapper {
-  padding: 20px; /* Adjust the padding as needed */
-  margin: 0 auto; /* Center the wrapper */
-  max-width: 1200px; /* Set a max-width to limit the content width */
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
   background-color: white;
 }
 
 .new-in-container {
-  display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  margin: 50px 0; /* Space above and below the container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
 }
 
 .new-in-container h3 {
-  margin: 0; /* Remove default margins */
-  padding: 0 10px; /* Add some padding for space around the text */
-  position: relative; /* For the pseudo-elements */
+  margin: 0;
+  padding: 0 10px;
+  position: relative;
   font-family: "Spectral", serif;
   font-weight: 400;
   font-style: normal;
@@ -31,24 +31,24 @@ _garments.scss
 
 .new-in-container::before,
 .new-in-container::after {
-  content: ""; /* Creates an empty box */
-  flex-grow: 1; /* Allows lines to grow and take available space */
-  height: 2px; /* Thickness of the lines */
-  background-color: #B31B1B; /* Color of the lines */
-  margin: 0 10px; /* Space between the lines and the heading */
+  content: "";
+  flex-grow: 1;
+  height: 2px;
+  background-color: #B31B1B;
+  margin: 0 10px;
 }
 
 .the-ruby-edit-container {
-  display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  margin: 50px 0; /* Space above and below the container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
 }
 
 .the-ruby-edit-container h3 {
-  margin: 0; /* Remove default margins */
-  padding: 0 10px; /* Add some padding for space around the text */
-  position: relative; /* For the pseudo-elements */
+  margin: 0;
+  padding: 0 10px;
+  position: relative;
   font-family: "Spectral", serif;
   font-weight: 400;
   font-style: normal;
@@ -56,18 +56,18 @@ _garments.scss
 
 .the-ruby-edit-container::before,
 .the-ruby-edit-container::after {
-  content: ""; /* Creates an empty box */
-  flex-grow: 1; /* Allows lines to grow and take available space */
-  height: 2px; /* Thickness of the lines */
-  background-color: #B31B1B; /* Color of the lines */
-  margin: 0 10px; /* Space between the lines and the heading */
+  content: "";
+  flex-grow: 1;
+  height: 2px;
+  background-color: #B31B1B;
+  margin: 0 10px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Four columns */
-  grid-gap: 100px; /* Space between grid items */
-  margin-top: 20px; /* Space above the grid */
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 100px;
+  margin-top: 20px;
   background-color: white;
 }
 
@@ -97,7 +97,7 @@ _garments.scss
   font-size: 36px;
   opacity: 2;
   margin: 0;
-  text-align: left; /* Align text to the left */
+  text-align: left;
   font-family: "Spectral", serif;
   font-weight: 200;
   font-style: normal;
@@ -105,9 +105,9 @@ _garments.scss
 
 .card-subtitle {
   font-size: 18px;
-  margin-top: 5px; /* Adjust spacing between header and paragraph */
-  margin-bottom: 20px; /* Adjust spacing between paragraph and button */
-  text-align: left; /* Align text to the left */
+  margin-top: 5px;
+  margin-bottom: 20px;
+  text-align: left;
   opacity: 0.9;
 }
 
@@ -120,24 +120,24 @@ _garments.scss
   display: flex;
   color: white;
   flex-direction: column;
-  align-items: flex-start; /* Aligns header and paragraph to the left */
+  align-items: flex-start;
   justify-content: center;
-  min-height: 400px; /* Adjust height to ensure button stays properly aligned */
+  min-height: 400px;
 }
 
 .card-garment {
   overflow: hidden;
-  background: white; /* Set background to white */
-  width: calc(100% - 20px); /* Adjust width to take up less space */
-  max-width: 250px; /* Limit the maximum width of each card */
-  height: 400px; /* Set a fixed height for the cards */
+  background: white; 
+  width: calc(100% - 20px);
+  max-width: 250px;
+  height: 400px;
   display: flex;
-  flex-direction: column; /* Ensure content is stacked vertically */
-  justify-content: space-between; /* Distribute the content evenly */
+  flex-direction: column;
+  justify-content: space-between;
   padding: 10px;
   box-sizing: border-box;
-  border: none; /* No border */
-  margin: 0 auto; /* Center each card */
+  border: none;
+  margin: 0 auto;
 }
 
 .card-garment:hover {
@@ -145,17 +145,17 @@ _garments.scss
 }
 
 .card-garment > img {
-  width: 100%; /* Make the image take the full width of the card */
-  height: 100%; /* Set a fixed height for uniformity */
-  object-fit: contain; /* Cover ensures the image fills the area */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   object-position: center;
   margin-bottom: 1px;
 }
 
 .card-garment .card-garment-infos {
-  padding: 3px; /* Reduced padding for less height */
+  padding: 3px;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
+  flex-direction: column;
   justify-content: flex-start;
   position: relative;
   flex-grow: 1;
@@ -199,26 +199,26 @@ _garments.scss
 }
 
 .card-garment-infos p {
-  font-size: 12px; /* Reduced font size for the owner */
+  font-size: 12px;
   opacity: .7;
   margin: 0;
   text-align: left;
 }
 
 .card-garment-infos {
-  padding: 5px; /* Reduced padding */
+  padding: 5px;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  justify-content: flex-start; /* Align to the top */
+  flex-direction: column;
+  justify-content: flex-start;
   position: relative;
   flex-grow: 1;
 }
 
 .card-garment-pricing {
-  font-size: 5px; /* Adjusted font size for pricing */
+  font-size: 5px;
   font-weight: light;
   color: black;
-  margin-left: 0; /* Removed margin left for alignment */
+  margin-left: 0;
 }
 
 .card-garment-infos .card-garment-user {

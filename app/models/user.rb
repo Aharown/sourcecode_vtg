@@ -7,4 +7,3 @@ class User < ApplicationRecord
          has_many :bookings
          has_many :garments, dependent: :nullify
 end
-#comment
