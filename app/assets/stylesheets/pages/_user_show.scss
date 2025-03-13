@@ -1,6 +1,6 @@
 .user-show-page-container {
-  padding: 20px; /* Optional padding on the outside */
-  padding-bottom: 0; /* No padding at the bottom */
+  padding: 20px;
+  padding-bottom: 0;
 }
 
 html, body {
@@ -8,19 +8,19 @@ html, body {
 }
 
 .user-main-wrapper {
-  margin: 0 auto; /* Center the wrapper */
-  max-width: 1200px; /* Set a max-width to limit the content width */
+  margin: 0 auto;
+  max-width: 1200px;
   background-color: white;
-  padding-top: 80px; /* Space below the navbar */
+  padding-top: 80px;
   padding-left: 40px;
-  padding-bottom: 0; /* Ensure no extra space at the bottom */
+  padding-bottom: 0;
   box-sizing: border-box;
-  min-height: calc(100vh - 20px); /* Adjust 80px based on the height of your navbar */
+  min-height: calc(100vh - 20px);
 }
 
 .user-info-container {
-  display: flex; /* Align profile photo and user details */
-  gap: 20px; /* Space between photo and details */
+  display: flex;
+  gap: 20px;
 }
 
 .user-profile-photo {
@@ -30,41 +30,40 @@ html, body {
   overflow: hidden;
   img {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    height: auto;
   }
 }
 
 .user-details h2 {
-  margin-bottom: 5px; /* Adjust this to control space below the username */
-  margin-top: -10px; /* Use negative margin to pull it up closer to the navbar */
+  margin-bottom: 5px;
+  margin-top: -10px;
 }
 
 .user-products-tab-container {
-  margin-top: 20px; /* Space above garments list */
+  margin-top: 20px;
   padding-right: 75px;
 }
 
 .user-follow-info {
-  margin-top: 10px; /* Adjust as needed */
+  margin-top: 10px;
 }
 
 .user-description {
-  margin-top: 10px; /* Adjust as needed */
+  margin-top: 10px;
 }
 
-/* Default star color */
 .user-rating .fas.fa-star {
-  color: #B31B1B; /* Gold for filled stars */
+  color: #B31B1B;
   font-size: 17px;
 }
 
 .user-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Four columns */
-  grid-gap: 100px; /* Space between grid items */
-  margin-top: 20px; /* Space above the grid */
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 100px;
+  margin-top: 20px;
   background-color: white;
-  padding-bottom: 0; /* No padding at the bottom */
+  padding-bottom: 0; 
 }
 
 @media (max-width: 1200px) {

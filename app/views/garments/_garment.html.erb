@@ -3,23 +3,17 @@
     <div class="card-garment <%= 'show-page' if show_all_photos %>">
 
       <% if show_all_photos %>
-        <!-- Show all photos for the garment -->
         <% garment.photos.each do |photo| %>
           <%= cl_image_tag photo.key, class: 'card-garment-img', alt: garment.title %>
         <% end %>
       <% else %>
-        <!-- Show only the first photo on the index page -->
         <%= cl_image_tag garment.photos.first.key, class:"card-garment-img", alt: garment.title %>
       <% end %>
 
-      <!-- Garment Info Section -->
       <div class="card-garment-infos">
-        <!-- Garment Title -->
         <p class="garment-title"><%= garment.title %></p>
-        <!-- Rental Price -->
         <p class="card-garment-pricing">€<%= garment.rental_price %> per day</p>
         <p class="garment-size">Size: <%= garment.size %></p>
-        <!-- Brand -->
         <p class="garment-brand"><%= garment.brand %></p>
       </div>
     </div>

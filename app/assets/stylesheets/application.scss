@@ -114,45 +114,45 @@ body.index-page {
 }
 
 body.form-page {
-  background-color: #ffffff; // Set background to white for the form page
+  background-color: #ffffff;
 }
 
 .form-main-styles-container {
-  margin: 0px auto; // Reduce top margin to minimize push
-  max-width: 800px; // Maximum width to limit the form size
-  background-color: white; // Light background color for the form
+  margin: 0px auto;
+  max-width: 800px;
+  background-color: white;
   padding-top: 50px;
-  padding-bottom: 80px; /* Adjust this value as needed */
+  padding-bottom: 80px;
 }
 
 .header {
-  margin-bottom: 20px; // Space below the header
-  padding: 75px 0; // Add some vertical padding to the header
+  margin-bottom: 20px;
+  padding: 75px 0;
   h2 {
     display: flex;
-    border-bottom: 0.3px solid #C0C0C0; // Line under the title
+    border-bottom: 0.3px solid #C0C0C0;
     font-family: "Spectral", serif;
     font-weight: 700;
     font-style: normal;
-    margin: 0; // Remove default margin
-    padding-bottom: 10px; // Space between header and line
+    margin: 0;
+    padding-bottom: 10px;
   }
 }
 
 .form-label {
-  font-weight: bold; // Bold labels
-  margin-bottom: 5px; // Space between label and input
+  font-weight: bold;
+  margin-bottom: 5px;
   font-size: 18px;
 }
 
 .form-control {
-  border-radius: 4px; /* Rounded corners for inputs */
-  border: 1px solid black; /* Border color */
-  padding: 10px; /* Padding for inputs */
+  border-radius: 4px;
+  border: 1px solid black;
+  padding: 10px;
 }
 
 
-/* Style for buttons */
+
 .btn-primary {
   background-color: #800020;
   color: white;
@@ -162,39 +162,35 @@ body.form-page {
 
 .btn-primary:hover {
   color: white;
-  background-color: #FF0000; /* Slightly lighter black on hover */
+  background-color: #FF0000;
 }
 
 
 .form-group h4 {
-  font-size: 1.25rem; /* You can adjust this size as needed */
-  font-weight: bold;  /* Bold labels for emphasis */
-   /* Add spacing below the label */
+  font-size: 1.25rem;
+  font-weight: bold;
   margin-top: 30px;
   color: black;
 }
 
 .existing-photos h4 {
-  font-size: 1.25rem; /* You can adjust this size as needed */
-  font-weight: bold;  /* Bold labels for emphasis */
-   /* Add spacing below the label */
+  font-size: 1.25rem;
+  font-weight: bold;
   margin-top: 30px;
   color: black;
 }
 
 .form-group-photos {
-  margin-top: 30px; /* Adjust the value as needed */
+  margin-top: 30px;
 }
 
 .form-group-button {
-  margin: 30px; /* Adjust the value as needed */
+  margin: 30px;
 }
 
 .garment-image-form {
-  max-width: 150px; /* Set maximum width to make images smaller */
-  max-height: 150px; /* Set maximum height */
-  object-fit: cover; /* Ensure images maintain their aspect ratio */
-  margin: 10px; /* Add margin for spacing */
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  margin: 10px;
 }
-
-// Add styles for preview and existing photos as necessary
