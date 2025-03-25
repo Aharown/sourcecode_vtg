@@ -6,4 +6,5 @@ class User < ApplicationRecord
          has_one_attached :profile_photo
          has_many :bookings
          has_many :garments, dependent: :nullify
+  attribute :admin, :boolean, default: false
 end
