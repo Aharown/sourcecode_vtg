@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, skip: [:registrations]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   authenticated :user do
@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     root to: "pages#home", as: :unauthenticated_root
   end
 
+  namespace :admin do
+    resources :garments
+  end
 
   resources :garments
   resources :bookings, except: [:edit, :update]
