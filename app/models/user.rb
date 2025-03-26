@@ -7,4 +7,9 @@ class User < ApplicationRecord
          has_many :bookings
          has_many :garments, dependent: :nullify
   attribute :admin, :boolean, default: false
+
+  def admin?
+    self.admin
+  end
+
 end
