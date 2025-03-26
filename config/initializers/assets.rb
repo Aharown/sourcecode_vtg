@@ -13,3 +13,4 @@ Rails.application.config.assets.version = "1.0"
 Rails.application.config.assets.precompile += %w(bootstrap.min.js popper.js)
 Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'videos')
 Rails.application.config.assets.precompile += %w( banner_video_3.mp4 )
+Rails.application.config.assets.paths << Rails.root.join("node_modules/@fortawesome/fontawesome-free/webfonts")
