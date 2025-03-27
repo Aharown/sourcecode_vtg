@@ -1,6 +1,18 @@
 RailsAdmin.config do |config|
   config.asset_source = :importmap
 
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+
+  config.current_user_method(&:current_user)
+  config.authorize_with do
+    unless current_user&.admin?
+    redirect_to "/" unless current_user&.admin?
+    end
+  end
+
+
   ### Popular gems integration
 
   ## == Devise ==
