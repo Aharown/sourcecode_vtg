@@ -7,4 +7,3 @@ import "@popperjs/core"
 
 import "bootstrap"
 
-import "./login_modal"
