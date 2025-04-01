@@ -1,6 +1,6 @@
 <%= link_to garment_path(garment) do %>
   <% if garment.photos.attached? %>
-    <div class="card-garment <%= 'show-page' if show_all_photos %>">
+    <div class="card-garment <%= 'show-page' if show_all_photos %> <%= 'sold-out' if garment.sold? %>">
 
       <% if show_all_photos %>
         <% garment.photos.each do |photo| %>
@@ -12,9 +12,13 @@
 
       <div class="card-garment-infos">
         <p class="garment-title"><%= garment.title %></p>
-        <p class="card-garment-pricing">€<%= garment.price %> per day</p>
+        <p class="card-garment-pricing">€<%= garment.price %></p>
         <p class="garment-size">Size: <%= garment.size %></p>
         <p class="garment-brand"><%= garment.brand %></p>
+
+        <% if garment.sold? %>
+          <p class="sold-label">SOLD</p>
+        <% end %>
       </div>
     </div>
   <% end %>
