@@ -15,15 +15,7 @@
         <p>Brand: <%= @garment.brand %></p>
         <p>Details: <%= @garment.description %></p>
 
-        <% if user_signed_in? %>
-        <button class="rent-button">Rent</button>
-        <button class="rent-button">Message</button>
-        <% else %>
-        <button class="rent-button login-trigger">Rent</button>
-        <button class="rent-button login-trigger">Message</button>
-        <% end %>
-        <%= link_to 'Edit listing', edit_garment_path(@garment), class: "rent-button" %>
-        <%= button_to 'Delete listing', garment_path(@garment), method: :delete, data: { confirm: 'Are you sure you want to delete this garment?' }, class: "rent-button" %>
+        <%= link_to 'ADD TO CART', edit_garment_path(@garment), class: "rent-button" %>
       </div>
     </div>
   </div>
