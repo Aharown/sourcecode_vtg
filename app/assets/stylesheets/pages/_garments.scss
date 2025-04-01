@@ -127,7 +127,7 @@ _garments.scss
 
 .card-garment {
   overflow: hidden;
-  background: white; 
+  background: white;
   width: calc(100% - 20px);
   max-width: 250px;
   height: 400px;
@@ -245,6 +245,22 @@ _garments.scss
 
 .footer-index .fas {
   color: #BF0F12;
+}
+
+.sold-out {
+  position: relative;
+  opacity: 0.5;
+}
+
+.sold-label {
+  color: red;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 @media (max-width: 1200px) {
