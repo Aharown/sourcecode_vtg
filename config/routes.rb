@@ -13,12 +13,15 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :garments
+    resources :garments, except: [:show] # Admin-only CRUD actions
   end
 
-  resources :garments
-  resources :bookings, except: [:edit, :update]
-  resources :reviews, except: [:edit, :update]
+  resources :garments, only: [:index, :show] do
+    member do
+      post :purchase
+    end
+  end
+  
   resources :pages
   resources :users, only: [:show]
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

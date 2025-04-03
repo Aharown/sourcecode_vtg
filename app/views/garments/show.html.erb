@@ -10,12 +10,16 @@
       </div>
       <div class="styles-info-container">
         <h1><%= @garment.title %></h1>
-        <p>Price: €<%= @garment.price %></p>
+        <p>Price: £<%= @garment.price %></p>
         <p>Size: <%= @garment.size %></p>
         <p>Brand: <%= @garment.brand %></p>
         <p>Details: <%= @garment.description %></p>
 
-        <%= link_to 'ADD TO CART', edit_garment_path(@garment), class: "rent-button" %>
+        <% if @garment.sold? %>
+          <p class="sold-label">SOLD</p>
+        <% else %>
+          <%= link_to 'ADD TO CART', edit_garment_path(@garment), class: "rent-button" %>
+        <% end %>
       </div>
     </div>
   </div>
