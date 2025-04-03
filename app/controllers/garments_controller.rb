@@ -46,6 +46,29 @@ class GarmentsController < ApplicationController
     end
   end
 
+  def purchase
+    @garment = Garment.find(params[:id])
+
+    if @garment.stock_quantity.positive?
+      create_stripe_session(@garment)
+    end
+  end
+
+  def create_stripe_session(garment)
+    session = Stripe::Checkout::Session.create({
+      payment_method_types: ['card'],
+      line_items: [{
+        name: garment.name,
+        amount: garment.price_pence,  # assuming the price is in cents
+        currency: 'gbp',
+        quantity: 1,
+      }],
+      success_url: garments_url,   # URL to redirect to after successful payment
+      cancel_url: garments_url,    # URL to redirect to if the payment is canceled
+    })
+
+    redirect_to session.url, allow_other_host: true
+  end
 
   def destroy
     @garment = Garment.find(params[:id])
