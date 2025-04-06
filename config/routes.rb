@@ -21,6 +21,9 @@ Rails.application.routes.draw do
       post :purchase
     end
   end
+
+  post '/create-checkout-session', to: 'payments#create_checkout_session'
+  get '/session-status', to: 'payments#session_status'
   
   resources :pages
   resources :users, only: [:show]

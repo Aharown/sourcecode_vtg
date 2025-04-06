@@ -18,7 +18,7 @@
         <% if @garment.sold? %>
           <p class="sold-label">SOLD</p>
         <% else %>
-          <%= link_to 'ADD TO CART', edit_garment_path(@garment), class: "rent-button" %>
+          <%= link_to 'ADD TO CART', class: "rent-button" %>
         <% end %>
       </div>
     </div>
