@@ -24,7 +24,8 @@ Rails.application.routes.draw do
 
   post '/create-checkout-session', to: 'payments#create_checkout_session'
   get '/session-status', to: 'payments#session_status'
-  
+  get '/thank_you', to: 'payments#thank_you', as: :thank_you
+
   resources :pages
   resources :users, only: [:show]
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
