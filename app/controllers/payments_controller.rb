@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
         quantity: 1
       }],
       mode: 'payment',
-      return_url: "#{root_url}return.html?session_id={CHECKOUT_SESSION_ID}"
+      return_url: "#{thank_you_url}?session_id={CHECKOUT_SESSION_ID}"
     )
 
     render json: { clientSecret: session.client_secret }
@@ -18,5 +18,12 @@ class PaymentsController < ApplicationController
   def session_status
     session = Stripe::Checkout::Session.retrieve(params[:session_id])
     render json: { status: session.status, customer_email: session.customer_details.email }
+  end
+
+  def thank_you
+    if params[:session_id].present?
+      session = Stripe::Checkout::Session.retrieve(params[:session_id])
+      @customer_email = session.customer_details.email
+    end
   end
 end

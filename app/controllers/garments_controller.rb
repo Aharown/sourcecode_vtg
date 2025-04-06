@@ -46,14 +46,6 @@ class GarmentsController < ApplicationController
     end
   end
 
-  def purchase
-    @garment = Garment.find(params[:id])
-
-    if @garment.stock_quantity.positive?
-      create_stripe_session(@garment)
-    end
-  end
-
   def destroy
     @garment = Garment.find(params[:id])
     if @garment.destroy
