@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
     session = Stripe::Checkout::Session.create(
       ui_mode: 'embedded',
       line_items: [{
-        price: params[:price_id],  # Pass this from your frontend
+        price: @garment.price_id,
         quantity: 1
       }],
       mode: 'payment',
