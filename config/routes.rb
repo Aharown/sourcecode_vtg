@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
 
   post '/create-checkout-session', to: 'payments#create_checkout_session'
+  get '/checkout', to: 'garments#checkout'
   get '/session-status', to: 'payments#session_status'
   get '/thank_you', to: 'payments#thank_you', as: :thank_you
 
