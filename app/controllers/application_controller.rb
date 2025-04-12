@@ -11,6 +11,16 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def admin?
+    current_user&.admin?
+  end
+
+  def require_admin
+    unless admin?
+      redirect_to garments_path
+    end
+  end
+
   def set_categories
     @categories = Category.all
   end

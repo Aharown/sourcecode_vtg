@@ -2,10 +2,11 @@ class PaymentsController < ApplicationController
   protect_from_forgery with: :null_session  # for API POSTs (adjust if needed)
 
   def create_checkout_session
+    garment = Garment.find(params[:garment_id])
     session = Stripe::Checkout::Session.create(
       ui_mode: 'embedded',
       line_items: [{
-        price: @garment.price_id,
+        price: garment.stripe_price_id,
         quantity: 1
       }],
       mode: 'payment',

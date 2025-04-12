@@ -1,6 +1,8 @@
 RailsAdmin.config do |config|
   config.asset_source = :importmap
-
+  config.model 'Garment' do
+    # customize how garments are displayed in the admin
+  end
   config.authenticate_with do
     warden.authenticate! scope: :user
   end

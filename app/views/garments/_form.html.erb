@@ -59,6 +59,10 @@
 
       <div class="form-group-button">
         <%= form.submit (@garment.persisted? ? "Save changes" : "Post"), class: "btn btn-primary" %>
+
+        <% if @garment.persisted? %>
+          <%= button_to 'Delete listing', garment_path(@garment), method: :delete, class: "btn btn-primary" %>
+        <% end %>
       </div>
     <% end %>
   </div>

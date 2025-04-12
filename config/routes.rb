@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :garments, except: [:show] # Admin-only CRUD actions
+    resources :garments, only: [:new, :create, :edit, :update]
   end
 
-  resources :garments, only: [:index, :show] do
+  resources :garments, only: [:index, :show, :new, :edit, :create, :destroy] do
     member do
       post :purchase
     end
