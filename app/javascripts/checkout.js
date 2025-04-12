@@ -7,6 +7,8 @@ async function initialize() {
   const fetchClientSecret = async () => {
     const response = await fetch("/create-checkout-session", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ garment_id: 42 })
     });
     const { clientSecret } = await response.json();
     return clientSecret;

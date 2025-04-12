@@ -1,5 +1,6 @@
 class GarmentsController < ApplicationController
-  before_action :set_garment, only: [:show, :edit, :update, :destroy]
+  before_action :set_garment, only: [:show]
+  before_action :require_admin, only: [:new, :edit]
 
   def index
     @garments = Garment.all
@@ -12,16 +13,30 @@ class GarmentsController < ApplicationController
     @garment = Garment.new
   end
 
+  def edit
+    @garment = Garment.find(params[:id])
+  end
+
   def create
-    @garment = current_user.garments.build(garment_params)
+    @garment = Garment.new(garment_params)
+
+    if params[:garment][:photos].present?
+      params[:garment][:photos].each do |photo|
+        @garment.photos.attach(photo)
+      end
+    end
+
     if @garment.save
-      redirect_to user_path(current_user), notice: 'Listing is live 🔥'
+      create_stripe_product(@garment)
+
+      redirect_to @garment
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @garment = Garment.find(params[:id])
   end
 
   def update
@@ -48,11 +63,38 @@ class GarmentsController < ApplicationController
 
   def destroy
     @garment = Garment.find(params[:id])
-    if @garment.destroy
-      redirect_to user_path(current_user), notice: "Listing has been deleted 🗑️."
-    else
-      redirect_to garments_path, alert: "Failed to delete the listing 🛑."
+
+    if @garment.stripe_product_id.present?
+      begin
+        Stripe::Product.update(@garment.stripe_product_id, { active: false })
+      rescue Stripe::InvalidRequestError => e
+        Rails.logger.error("Stripe error while archiving product: #{e.message}")
+      end
     end
+
+    @garment.destroy
+    redirect_to garments_path, notice: 'Garment deleted successfully.'
+  end
+
+  def create_stripe_product(garment)
+    images = garment.photos.map { |photo| url_for(photo) }
+
+    stripe_product = Stripe::Product.create({
+      name: garment.title,
+      description: garment.description,
+      images: images
+    })
+
+    stripe_price = Stripe::Price.create({
+      product: stripe_product.id,
+      unit_amount: (garment.price * 100).to_i,
+      currency: 'gbp',
+    })
+
+    garment.update(
+      stripe_product_id: stripe_product.id,
+      stripe_price_id: stripe_price.id
+    )
   end
 
   private
