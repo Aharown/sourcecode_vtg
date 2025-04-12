@@ -10,20 +10,17 @@ namespace :stripe do
   task update_photos: :environment do
     include Rails.application.routes.url_helpers
 
-    # Host is needed for url_for to work outside of controllers/views
     Rails.application.routes.default_url_options[:host] = "http://localhost:3000"
     Garment.where.not(stripe_price_id: [nil, ""]).find_each do |garment|
       puts "Updating photos for: #{garment.title}"
 
-      # Get the Stripe product ID from the price_id
       price = Stripe::Price.retrieve(garment.stripe_price_id)
       product_id = price.product
 
-      # Collect all photo URLs
       photo_urls = garment.photos.map do |photo|
 
         url = url_for(photo).split('?').first
-        stripped_url = url.gsub(/\?.*/, '') # remove any service-specific query params
+        stripped_url = url.gsub(/\?.*/, '')
         puts "Generated URL: #{stripped_url}"
         stripped_url
       end.compact

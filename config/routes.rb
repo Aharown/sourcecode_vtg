@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :garments, only: [:new, :create, :edit, :update]
   end
 
-  resources :garments, only: [:index, :show, :new, :edit, :create, :destroy] do
+  resources :garments, only: [:index, :show, :new, :edit, :create, :destroy, :update] do
     member do
       post :purchase
     end
