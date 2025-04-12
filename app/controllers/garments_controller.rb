@@ -20,18 +20,12 @@ class GarmentsController < ApplicationController
   def create
     @garment = Garment.new(garment_params)
 
-    if params[:garment][:photos].present?
-      params[:garment][:photos].each do |photo|
-        @garment.photos.attach(photo)
-      end
-    end
-
     if @garment.save
-      create_stripe_product(@garment)
+      # create_stripe_product(@garment)
 
       redirect_to @garment
-    else
-      render :new, status: :unprocessable_entity
+    # else
+    #   render :new, status: :unprocessable_entity
     end
   end
 
@@ -55,7 +49,7 @@ class GarmentsController < ApplicationController
     end
 
     if @garment.update(garment_params.except(:photos))
-      redirect_to @garment, notice: 'Garment was successfully updated.'
+      redirect_to @garment
     else
       render :edit
     end
@@ -73,29 +67,29 @@ class GarmentsController < ApplicationController
     end
 
     @garment.destroy
-    redirect_to garments_path, notice: 'Garment deleted successfully.'
+    redirect_to garments_path
   end
 
-  def create_stripe_product(garment)
-    images = garment.photos.map { |photo| url_for(photo) }
+  # def create_stripe_product(garment)
+  #   images = garment.photos.map { |photo| url_for(photo) }
 
-    stripe_product = Stripe::Product.create({
-      name: garment.title,
-      description: garment.description,
-      images: images
-    })
+  #   stripe_product = Stripe::Product.create({
+  #     name: garment.title,
+  #     description: garment.description,
+  #     images: images
+  #   })
 
-    stripe_price = Stripe::Price.create({
-      product: stripe_product.id,
-      unit_amount: (garment.price * 100).to_i,
-      currency: 'gbp',
-    })
+  #   stripe_price = Stripe::Price.create({
+  #     product: stripe_product.id,
+  #     unit_amount: (garment.price * 100).to_i,
+  #     currency: 'gbp',
+  #   })
 
-    garment.update(
-      stripe_product_id: stripe_product.id,
-      stripe_price_id: stripe_price.id
-    )
-  end
+  #   garment.update(
+  #     stripe_product_id: stripe_product.id,
+  #     stripe_price_id: stripe_price.id
+  #   )
+  # end
 
   private
 

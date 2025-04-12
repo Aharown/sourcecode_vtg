@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  protect_from_forgery with: :null_session  # for API POSTs (adjust if needed)
+  protect_from_forgery with: :null_session  
 
   def create_checkout_session
     garment = Garment.find(params[:garment_id])
