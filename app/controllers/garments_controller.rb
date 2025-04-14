@@ -21,11 +21,9 @@ class GarmentsController < ApplicationController
     @garment = Garment.new(garment_params)
 
     if @garment.save
-      # create_stripe_product(@garment)
+      create_stripe_product(@garment)
 
       redirect_to @garment
-    # else
-    #   render :new, status: :unprocessable_entity
     end
   end
 
@@ -70,26 +68,26 @@ class GarmentsController < ApplicationController
     redirect_to garments_path
   end
 
-  # def create_stripe_product(garment)
-  #   images = garment.photos.map { |photo| url_for(photo) }
+  def create_stripe_product(garment)
+    images = garment.photos.map { |photo| url_for(photo) }
 
-  #   stripe_product = Stripe::Product.create({
-  #     name: garment.title,
-  #     description: garment.description,
-  #     images: images
-  #   })
+    stripe_product = Stripe::Product.create({
+      name: garment.title,
+      description: garment.description,
+      images: images
+    })
 
-  #   stripe_price = Stripe::Price.create({
-  #     product: stripe_product.id,
-  #     unit_amount: (garment.price * 100).to_i,
-  #     currency: 'gbp',
-  #   })
+    stripe_price = Stripe::Price.create({
+      product: stripe_product.id,
+      unit_amount: (garment.price * 100).to_i,
+      currency: 'gbp',
+    })
 
-  #   garment.update(
-  #     stripe_product_id: stripe_product.id,
-  #     stripe_price_id: stripe_price.id
-  #   )
-  # end
+    garment.update(
+      stripe_product_id: stripe_product.id,
+      stripe_price_id: stripe_price.id
+    )
+  end
 
   private
 

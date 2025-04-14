@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/checkout', to: 'garments#checkout'
   get '/session-status', to: 'payments#session_status'
   get '/thank_you', to: 'payments#thank_you', as: :thank_you
+  get 'checkout', to: 'checkout#show'
 
   resources :pages
   resources :users, only: [:show]
