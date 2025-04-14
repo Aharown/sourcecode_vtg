@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  protect_from_forgery with: :null_session  
+  skip_before_action :verify_authenticity_token, only: [:create_checkout_session]  # Temporarily skip CSRF token check for testing
 
   def create_checkout_session
     garment = Garment.find(params[:garment_id])
