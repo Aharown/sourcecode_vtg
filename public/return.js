@@ -1,3 +1,5 @@
+console.log("🔥 return.js loaded");
+
 initialize();
 
 async function initialize() {
