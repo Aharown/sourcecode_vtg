@@ -18,7 +18,7 @@
         <% if @garment.sold? %>
           <p class="sold-label">SOLD</p>
         <% else %>
-          <%= link_to 'PURCHASE', checkout_path(garment_id: @garment.id), class: "btn btn-primary" %>
+          <%= button_to "Add to Cart", cart_items_path(item_id: @garment.id), method: :post %>
         <% end %>
 
         <div id="checkout" data-garment-id="<%= @garment.id %>"></div>
