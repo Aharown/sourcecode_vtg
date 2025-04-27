@@ -1,4 +1,5 @@
 <h2>Your Cart</h2>
+
 <% if @cart_items.empty? %>
   <p>Your cart is empty.</p>
 <% else %>
@@ -6,8 +7,13 @@
     <% @cart_items.each do |entry| %>
       <li>
         <%= entry[:item].title %> - Quantity: <%= entry[:quantity] %>
+        - Price: £<%= entry[:item].price %>
+        - Total: £<%= entry[:item].price * entry[:quantity] %>  
+
         <%= button_to "Remove", cart_item_path(entry[:item]), method: :delete %>
       </li>
     <% end %>
   </ul>
+
+  <p><strong>Total: £<%= @cart_items.sum { |entry| entry[:item].price * entry[:quantity] } %></strong></p>
 <% end %>
