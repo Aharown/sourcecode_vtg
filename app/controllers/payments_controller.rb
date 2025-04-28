@@ -2,15 +2,19 @@ class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create_checkout_session]  # Temporarily skip CSRF token check for testing
 
   def create_checkout_session
-    garment = Garment.find(params[:garment_id])
+    cart_items = session[:cart].map do |id, quantity|
+      garment = Garment.find(id)
+      {
+        price: garment.stripe_price_id,
+        quantity: quantity
+      }
+    end
+
     session = Stripe::Checkout::Session.create(
       ui_mode: 'embedded',
-      line_items: [{
-        price: garment.stripe_price_id,
-        quantity: 1
-      }],
+      line_items: cart_items,
       mode: 'payment',
-      return_url: "#{thank_you_url}?session_id={CHECKOUT_SESSION_ID}"
+      return_url: "#{thank_you_url}?session_id={CHECKOUT_SESSION_ID}",
     )
 
     render json: { clientSecret: session.client_secret }

@@ -8,4 +8,6 @@ class CartsController < ApplicationController
       @cart_items << { item: item, quantity: quantity }
     end
   end
+
+   
 end

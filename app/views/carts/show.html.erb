@@ -6,9 +6,15 @@
   <ul>
     <% @cart_items.each do |entry| %>
       <li>
+        <% if entry[:item].photos.attached? %>
+          <%= cl_image_tag entry[:item].photos.first.key, class: "garment-image", alt: entry[:item].title, width: 20, height: 20 %>
+        <% else %>
+          <img src="<%= asset_path('placeholder-image.jpg') %>" alt="Placeholder Image" class="garment-image" width="50" height="50">
+        <% end %>
+
         <%= entry[:item].title %> - Quantity: <%= entry[:quantity] %>
         - Price: £<%= entry[:item].price %>
-        - Total: £<%= entry[:item].price * entry[:quantity] %>  
+        - Total: £<%= entry[:item].price * entry[:quantity] %>
 
         <%= button_to "Remove", cart_item_path(entry[:item]), method: :delete %>
       </li>
@@ -16,4 +22,5 @@
   </ul>
 
   <p><strong>Total: £<%= @cart_items.sum { |entry| entry[:item].price * entry[:quantity] } %></strong></p>
+  <button id="checkout-button" class="btn btn-primary">Checkout</button>
 <% end %>

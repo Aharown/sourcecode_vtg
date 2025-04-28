@@ -1,6 +1,8 @@
 class CheckoutController < ApplicationController
-  
+
   def show
-    @garment = Garment.find(params[:garment_id])
+    @cart_items = session[:cart].map do |id, quantity|
+      item = Garment.find(id)
+      { item: item, quantity: quantity }
   end
 end

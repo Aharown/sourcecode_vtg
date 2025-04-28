@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'cart_items/create'
-  get 'cart_items/update'
-  get 'cart_items/destroy'
-  get 'carts/show'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, skip: [:registrations]
@@ -34,7 +30,6 @@ Rails.application.routes.draw do
 
   resources :pages
   resources :users, only: [:show]
-
   resource :cart, only: [:show]
   resources :cart_items, only: [:create, :update, :destroy]
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
