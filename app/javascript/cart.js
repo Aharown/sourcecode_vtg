@@ -1,6 +1,5 @@
 console.log("✅ Using updated cart.js!");
 
-// Wait for DOM to load completely before attaching event listener
 document.addEventListener("turbo:load", () => {
   const checkoutButton = document.getElementById("checkout-button");
 
@@ -11,16 +10,14 @@ document.addEventListener("turbo:load", () => {
       console.log("Checkout button clicked");
 
       try {
-        // Fetch the clientSecret from the server
         const response = await fetch("/create-checkout-session", {
           method: "POST",
           headers: { "Content-Type": "application/json" }
         });
 
-        const { clientSecret } = await response.json(); // Get the clientSecret from the server
+        const { clientSecret } = await response.json();
 
         if (clientSecret) {
-          // Redirect to the checkout page with clientSecret
           window.location.href = `/checkout?client_secret=${clientSecret}`;
         } else {
           console.error("Client Secret not found in response!");
