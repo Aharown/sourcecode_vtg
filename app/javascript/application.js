@@ -7,4 +7,6 @@ import "@popperjs/core"
 
 import "bootstrap"
 
+import "cart"
+
 import "checkout"

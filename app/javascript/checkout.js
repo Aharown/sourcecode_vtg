@@ -1,3 +1,5 @@
+document.addEventListener("turbo:load", async () => {
+
 console.log("✅ Using updated checkout.js!");
 
 const stripe = Stripe(window.StripePublishableKey);
@@ -13,14 +15,17 @@ async function initialize() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ garment_id: garmentId })
     });
+
     const { clientSecret } = await response.json();
     return clientSecret;
   };
 
+  const clientSecret = await fetchClientSecret();
+
   const checkout = await stripe.initEmbeddedCheckout({
-    fetchClientSecret,
+    clientSecret: clientSecret,
   });
 
-  // Mount Checkout
   checkout.mount('#checkout');
 }
+});
