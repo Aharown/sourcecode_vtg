@@ -12,7 +12,7 @@
           <img src="<%= asset_path('placeholder-image.jpg') %>" alt="Placeholder Image" class="garment-image" width="50" height="50">
         <% end %>
 
-        <%= entry[:item].title %> - Quantity: <%= entry[:quantity] %>
+        <%= entry[:item].title %>
         - Price: £<%= entry[:item].price %>
         - Total: £<%= entry[:item].price * entry[:quantity] %>
 

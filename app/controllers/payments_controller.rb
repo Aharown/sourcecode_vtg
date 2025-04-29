@@ -2,12 +2,27 @@ class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create_checkout_session]  # Temporarily skip CSRF token check for testing
 
   def create_checkout_session
-    cart_items = session[:cart].map do |id, quantity|
-      garment = Garment.find(id)
-      {
-        price: garment.stripe_price_id,
-        quantity: quantity
-      }
+    sold_items = []
+    cart_items = []
+
+    session[:cart]&.each do |id, quantity|
+      garment = Garment.find_by(id: id)
+
+      if garment.nil? || garment.sold
+        sold_items << garment&.name || "Item ##{id}"
+      else
+        cart_items << {
+          price: garment.stripe_price_id,
+          quantity: quantity
+        }
+      end
+    end
+
+    if sold_items.any?
+      render json: {
+        error: "The following items are no longer available: #{sold_items.join(', ')}"
+      }, status: :unprocessable_entity
+      return
     end
 
     session = Stripe::Checkout::Session.create(
