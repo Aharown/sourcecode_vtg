@@ -2,14 +2,18 @@ class CartItemsController < ApplicationController
   def create
     id = params[:item_id].to_s
     session[:cart] ||= {}
-    session[:cart][id] = (session[:cart][id] || 0) + 1
+
+    if session[:cart].key?(id)
+    else
+      session[:cart][id] = 1
+    end
+
     redirect_to cart_path
   end
 
   def update
     id = params[:item_id].to_s
-    quantity = params[:quantity].to_i
-    session[:cart][id] = quantity if quantity > 0
+    session[:cart][id] = 1
     redirect_to cart_path
   end
 
