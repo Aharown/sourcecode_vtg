@@ -23,10 +23,12 @@ Rails.application.routes.draw do
   end
 
   post '/create-checkout-session', to: 'payments#create_checkout_session'
+  post '/webhooks/stripe', to: 'webhooks#stripe'
   get '/checkout', to: 'garments#checkout'
   get '/session-status', to: 'payments#session_status'
   get '/thank_you', to: 'payments#thank_you', as: :thank_you
   get 'checkout', to: 'checkout#show'
+
 
   resources :pages
   resources :users, only: [:show]
