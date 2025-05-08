@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_11_233051) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_08_144629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_11_233051) do
     t.integer "category_id"
     t.string "size"
     t.string "photos"
-    t.boolean "sold"
+    t.boolean "sold", default: false, null: false
     t.integer "stock_quantity", default: 1, null: false
     t.string "stripe_price_id"
     t.string "stripe_product_id"
