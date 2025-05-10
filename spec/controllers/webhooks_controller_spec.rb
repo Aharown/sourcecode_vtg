@@ -3,17 +3,14 @@ require 'openssl'
 require 'active_support/log_subscriber/test_helper'
 
 RSpec.describe WebhooksController, type: :controller do
+  include StripeSignatureHelper
   include ActiveSupport::LogSubscriber::TestHelper
+  setup
+
 
   describe 'POST #stripe' do
     let(:webhook_secret) { 'whsec_test_secret' }
     let(:timestamp) { Time.now.to_i }
-
-    def generate_stripe_signature_header(payload:, secret:, timestamp:)
-      signed_payload = "#{timestamp}.#{payload}"
-      signature = OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), secret, signed_payload)
-      "t=#{timestamp},v1=#{signature}"
-    end
 
     before do
       stub_const('ENV', ENV.to_hash.merge('STRIPE_WEBHOOK_SECRET' => webhook_secret))
