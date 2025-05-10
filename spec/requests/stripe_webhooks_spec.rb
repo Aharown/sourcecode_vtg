@@ -1,10 +1,12 @@
-require 'stripe_signature'
+require 'rails_helper'
+
 
 RSpec.describe 'Stripe Webhooks', type: :request do
+  include StripeSignatureHelper
   let(:secret) { Rails.application.credentials.dig(:stripe, :webhook_secret) }
   let(:timestamp) { Time.now.to_i }
   let(:valid_payload) { file_fixture('stripe_checkout_session_completed.json').read }
-  let(:valid_signature) { Stripe::Webhook::Signature.compute_header(valid_payload, secret, timestamp) }
+  let(:valid_signature) { generate_stripe_signature_header(payload: valid_payload, secret: secret, timestamp: timestamp) } # <-- FIXED HERE
 
   context 'with a valid signature' do
     it 'returns 200 OK' do
