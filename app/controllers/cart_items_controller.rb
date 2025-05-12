@@ -12,7 +12,7 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    id = params[:item_id].to_s
+    id = params[:id].to_s
     session[:cart][id] = 1
     redirect_to cart_path
   end
