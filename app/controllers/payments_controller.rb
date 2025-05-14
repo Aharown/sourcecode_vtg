@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
       }
     end
 
-    session = Stripe::Checkout::Session.create(
+    checkout_session = Stripe::Checkout::Session.create(
       ui_mode: 'embedded',
       line_items: cart_items,
       mode: 'payment',
@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
       }
     )
 
-    render json: { clientSecret: session.client_secret }
+    render json: { clientSecret: checkout_session.client_secret }
   end
 
   def session_status
