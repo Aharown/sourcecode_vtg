@@ -400,6 +400,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   error_highlight (>= 0.4.0)
+  ffi (~> 1.15)
   font-awesome-sass (~> 6.1)
   hotwire-rails
   importmap-rails
