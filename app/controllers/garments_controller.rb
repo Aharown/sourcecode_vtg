@@ -3,7 +3,16 @@ class GarmentsController < ApplicationController
   before_action :require_admin, only: [:new, :edit]
 
   def index
-    @garments = Garment.all
+    @categories = Category.all
+
+    if params[:search].present? && params[:search][:query].present?
+      query = params[:search][:query]
+      @garments = Garment.where("title ILIKE ?", "%#{query}%")
+    elsif params[:category].present?
+      @garments = Garment.where(category_id: params[:category])
+    else
+      @garments = Garment.all
+    end
   end
 
   def show
