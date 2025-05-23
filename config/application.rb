@@ -7,7 +7,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module RubyGarments
+module SourcecodeVtg
   class Application < Rails::Application
     Dotenv.load if Rails.env.development? || Rails.env.test?
     config.action_controller.raise_on_missing_callback_actions = false if Rails.version >= "7.1.0"
