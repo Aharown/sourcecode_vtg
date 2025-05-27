@@ -1,8 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-sourcecode">
   <div class="container-fluid">
       <%= link_to garments_path, class: "d-flex align-items-center" do %>
-        <i class="fa-solid fa-gem" style="font-size: 24px;"></i>
-        <span class="navbar-brand-name ms-2 spectral-extralight">RUBY GARMENTS
+        <span class="navbar-brand-name ms-2">
+          SOURCECODE<span class="blinking-underscore">_</span>VTG
         </span>
       <% end %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,42 +11,41 @@
       <div class="search-container">
         <%= simple_form_for :search, url: garments_path, method: :get do |f| %>
           <div class="search-form-control form-group">
-            <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search for..." />
-            <button name="button" type="submit" class="btn btn-ghost">
-              <i class="fas fa-search"></i>
-            </button>
+            <input
+              class="form-control string required terminal-input"
+              type="text"
+              name="search[query]"
+              id="search_query"
+              data-controller="placeholder"
+              data-placeholder-target="input"
+              data-action="focus->placeholder#hidePlaceholder blur->placeholder#restorePlaceholder"
+              placeholder="> Searching..." />
           </div>
         <% end %>
       </div>
     <div class="dropdown-container">
-    <form action="<%= garments_path %>" method="get" class="d-flex align-items-center" id="categoryForm">
+    <form data-controller="category" action="<%= garments_path %>" method="get" class="d-flex align-items-center" data-category-target="form">
       <div class="dropdown">
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Categories
-          <span class="circle-icon">
-            <i class="fas fa-chevron-down"></i>
-          </span>
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle">
+          &gt; Categories
         </button>
         <ul class="dropdown-menu">
           <% @categories.each do |category| %>
             <li>
-              <button class="dropdown-item" type="button" onclick="selectCategoryAndSubmit('<%= category.id %>')">
+              <button
+                class="dropdown-item"
+                type="button"
+                data-action="click->category#select"
+                data-category-id="<%= category.id %>">
+                &gt;
                 <%= category.name %>
               </button>
             </li>
           <% end %>
         </ul>
-        <input type="hidden" id="category" name="category">
+        <input data-category-target="hiddenInput" type="hidden" name="category">
       </div>
     </form>
    </div>
   </div>
 </div>
-
-<script>
-  function selectCategoryAndSubmit(categoryId) {
-    document.getElementById('category').value = categoryId;
-
-    document.getElementById('categoryForm').submit();
-  }
-</script>
