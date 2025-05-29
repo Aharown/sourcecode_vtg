@@ -21,6 +21,7 @@
     <body class="<%= "#{controller_name}-#{action_name} #{controller_name == 'garments' && action_name == 'index' ? 'index-page' : ''} #{controller_name == 'garments' && %w[new edit].include?(action_name) ? 'form-page' : ''}" %>">
       <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
         <%= render 'shared/navbar' %>
+        <%= render 'shared/ticker' %>
       <% end %>
 
       <%= render "shared/flashes" %>

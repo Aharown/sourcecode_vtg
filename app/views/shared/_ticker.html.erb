@@ -1,0 +1,19 @@
+<div class="ticker-wrapper">
+  <ul class="ticker">
+    <% @ticker_messages = [
+      { text: "> Follow us on IG @sourcecode_vtg", url: "https://instagram.com/sourcecode_vtg", external: true }
+    ] %>
+
+    <% @ticker_messages.each do |msg| %>
+      <li>
+        <% if msg[:external] %>
+          <a href="<%= msg[:url] %>" target="_blank" rel="noopener">
+            <%= msg[:text] %>
+          </a>
+        <% else %>
+          <%= link_to msg[:text], msg[:url] %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
