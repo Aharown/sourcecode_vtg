@@ -16,9 +16,9 @@
         <% end %>
       <% else %>
         <% if params.dig(:search, :query).present? %>
-          <p>No garments found matching "<%= params[:search][:query] %>".</p>
+          <p>Outside the construct "<%= params[:search][:query] %>".</p>
         <% else %>
-          <p>No garments available.</p>
+          <p></p>
         <% end %>
       <% end %>
     </div>

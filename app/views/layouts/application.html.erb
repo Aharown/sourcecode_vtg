@@ -18,9 +18,16 @@
     <%= yield(:head) if content_for?(:head) %>
   </head>
 
-    <body class="<%= "#{controller_name}-#{action_name} #{controller_name == 'garments' && action_name == 'index' ? 'index-page' : ''} #{controller_name == 'garments' && %w[new edit].include?(action_name) ? 'form-page' : ''}" %>">
+    <body class="<%= [
+      "#{controller_name}-#{action_name}",
+      (controller_name == 'garments' && action_name == 'index' ? 'index-page' : nil),
+      (controller_name == 'garments' && %w[new edit].include?(action_name) ? 'form-page' : nil),
+      (controller_name == 'pages' && action_name == 'home' ? 'landing-page' : nil)
+    ].compact.join(' ') %>">
       <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
         <%= render 'shared/navbar' %>
+      <% end %>
+      <% unless controller_name == 'pages' && action_name == 'home' %>
         <%= render 'shared/ticker' %>
       <% end %>
 
