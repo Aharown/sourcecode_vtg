@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body.landing-page {
+  background-color: #000;
+  color: #39ff14;
+  font-family: 'VT323', monospace;
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+}
+
+.crt {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  filter: contrast(1.2) brightness(2);
+  animation: flicker 2s infinite alternate;
+}
+
+.crt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  z-index: 1;
+}
+
+.typed-text {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .15em solid #39ff14;
+  width: 0;
+  animation: typing 3s steps(40, end) forwards, blink .75s step-end infinite;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { background-color: #39ff14; }
+  50% { background-color: transparent; }
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  100% { opacity: 0.985; }
+}
+
+.terminal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transform: translateY(-10%);
+}
+
+.pill-button {
+  margin-top: 2rem;
+  padding: 0.4rem 2rem;
+  background-color: #ff0033;
+  color: black;
+  border: none;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'VT323', monospace;
+  transition: background-color 0.3s;
+  z-index: 2;
+
+  &:hover {
+    background-color: #cc0029;
+  }
+}
+
+.typed-line {
+  font-size: 2rem;
+  color: #39ff14;
+  font-family: 'VT323', monospace;
+  display: inline;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.20em;
+  height: 1.3em;
+  background-color: #39ff14;
+  animation: cursor-blink 1s step-end infinite;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  position: relative;
+  z-index: 2;
+}

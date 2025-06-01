@@ -1,53 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>landing page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <div class="banner">
-       <video autoplay loop muted playsinline class="banner-video">
-        <source src="<%= asset_path('banner_video_3.mp4') %>" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="container">
-        <h1>Bring the runway straight to your door.</h1>
-        <p>Shine ruby bright and stand out by renting rare luxury garments.</p>
-        <%= link_to "ENTER", garments_path, class: "btn-primary login-trigger" %>
-      </div>
+<div class="crt">
+  <div class="terminal-container" data-controller="landing">
+    <div>
+      <span data-landing-target="line1" class="typed-line"></span>
     </div>
-    <div class="container">
-      <h2 class="text-center">
-      </h2>
-      <div class="cards">
-        <div class="card">
-          <h4>Select</h4>
-          <p>Choose from our wide range of user curated listings.</p>
-        </div>
-        <div class="card">
-          <h4>Digital wardrobe</h4>
-          <p>Monetise your style and upload your own looks.</p>
-        </div>
-        <div class="card">
-          <h4>Equalise</h4>
-          <p>Make the luxurious accessible by creating an account today.</p>
-        </div>
-      </div>
+    <div>
+      <span data-landing-target="line2" class="typed-line"></span>
     </div>
-    <div class="footer">
-      <div class="links">
-        <a href="#">
-          <i class="fab fa-fw fa-facebook-f"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-fw fa-twitter"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-fw fa-instagram"></i>
-        </a>
-      </div>
-    </div>
-  </body>
-</html>
+    <span id="cursor" class="cursor"></span>
+    <%= link_to 'ENTER', garments_path, class: 'pill-button' %>
+  </div>
+</div>
