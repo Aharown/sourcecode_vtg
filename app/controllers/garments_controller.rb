@@ -9,7 +9,8 @@ class GarmentsController < ApplicationController
       query = params[:search][:query]
       @garments = Garment.where("title ILIKE ?", "%#{query}%")
     elsif params[:category].present?
-      @garments = Garment.where(category_id: params[:category])
+      @selected_category = Category.find_by(id: params[:category])
+      @garments = @selected_category.present? ? @selected_category.garments : Garment.none
     else
       @garments = Garment.all
     end

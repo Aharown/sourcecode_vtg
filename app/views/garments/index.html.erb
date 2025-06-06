@@ -1,13 +1,19 @@
 <div id="feed">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path('dennis-zhang-JfYu7iwHhe0-unsplash.jpg') %>');">
-    <h3 class="card-title">Make the everyday extraordinary</h3>
-    <p class="card-subtitle">Create a listing and bring your wardrobe to the world.</p>
+    <h3 class="card-title">Source the rarest vintage streetwear pieces </h3>
+    <p class="card-subtitle">Vintage streetwear. East meets west.</p>
   </div>
 
   <div class="main-wrapper">
-    <div class="new-in-container">
-      <h3>New in</h3>
-    </div>
+    <% if @selected_category.present? %>
+      <div class="new-in-container">
+        <h3><%= @selected_category.name %></h3>
+      </div>
+    <% else %>
+      <div class="new-in-container">
+        <h3>New in</h3>
+      </div>
+    <% end %>
 
     <div class="grid">
       <% if @garments.exists? %>
@@ -18,33 +24,25 @@
         <% if params.dig(:search, :query).present? %>
           <p>Outside the construct "<%= params[:search][:query] %>".</p>
         <% else %>
-          <p></p>
+          <p>No garments found.</p>
         <% end %>
       <% end %>
     </div>
 
-    <div class="the-ruby-edit-container">
-      <h3>The Ruby Edit</h3>
-    </div>
+    <% unless @selected_category.present? %>
+      <div class="the-ruby-edit-container">
+        <h3>All Pieces</h3>
+      </div>
 
-    <div class="grid">
-      <% if @garments.exists? %>
+      <div class="grid">
         <% @garments.each do |garment| %>
           <%= render partial: "garment", locals: { garment: garment, show_all_photos: false } %>
         <% end %>
-      <% else %>
-        <p>No garments available.</p>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
   <div class="footer-index">
       <div class="links">
-        <a href="#">
-          <i class="fab fa-fw fa-facebook-f"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-fw fa-twitter"></i>
-        </a>
         <a href="#">
           <i class="fab fa-fw fa-instagram"></i>
         </a>

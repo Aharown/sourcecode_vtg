@@ -122,7 +122,7 @@ body {
   font-family: 'VT323', monospace !important;
   background: #000;
   border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #2A3439;
   white-space: nowrap;
   font-family: monospace;
   padding: 6px 0;
@@ -131,11 +131,12 @@ body {
 
 .ticker {
   display: inline-flex;
-  animation: ticker-scroll 20s linear infinite;
+  animation: ticker-scroll 17s linear infinite;
   list-style: none;
   gap: 3rem;
   padding-left: 100%;
   margin: 0;
+  will-change: transform;
 }
 
 .ticker li {
@@ -153,6 +154,6 @@ body {
 }
 
 @keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% { transform: translate3d(-100%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }

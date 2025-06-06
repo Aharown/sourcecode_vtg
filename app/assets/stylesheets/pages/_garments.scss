@@ -10,7 +10,7 @@ _garments.scss
   padding: 20px;
   margin: 0 auto;
   max-width: 1200px;
-  background-color: white;
+  background-color: black;
 }
 
 .new-in-container {
@@ -24,17 +24,19 @@ _garments.scss
   margin: 0;
   padding: 0 10px;
   position: relative;
-  font-family: "Spectral", serif;
+  font-family: 'VT323', monospace !important;
   font-weight: 400;
   font-style: normal;
+  color: #39ff14;
 }
 
 .new-in-container::before,
 .new-in-container::after {
   content: "";
   flex-grow: 1;
-  height: 2px;
-  background-color: #B31B1B;
+  height: 1px;
+  filter: contrast(3) brightness(5);
+  background-color: whitesmoke;
   margin: 0 10px;
 }
 
@@ -51,14 +53,17 @@ _garments.scss
   position: relative;
   font-weight: 400;
   font-style: normal;
+  color: #39ff14;
+  font-family: 'VT323', monospace !important;
 }
 
 .the-ruby-edit-container::before,
 .the-ruby-edit-container::after {
   content: "";
   flex-grow: 1;
-  height: 2px;
-  background-color: #B31B1B;
+  height: 1px;
+  filter: contrast(3) brightness(5);
+  background-color: whitesmoke;
   margin: 0 10px;
 }
 
@@ -67,7 +72,7 @@ _garments.scss
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 100px;
   margin-top: 20px;
-  background-color: white;
+  background-color: #121212;
 }
 
 .card-category {
@@ -82,27 +87,20 @@ _garments.scss
   padding-left: 359px;
 }
 
-.card-button {
-  margin-right: 15px;
-  display: inline-block;
-  background-color: #800020;
-  padding: 16px 36px;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
 .card-title {
   font-size: 36px;
   opacity: 2;
   margin: 0;
+  color: white;
   text-align: left;
-  font-family: "Spectral", serif;
+  font-family: 'VT323', monospace !important;
   font-weight: 200;
   font-style: normal;
 }
 
 .card-subtitle {
+  font-family: 'VT323', monospace !important;
+  color: white;
   font-size: 18px;
   margin-top: 5px;
   margin-bottom: 20px;
@@ -126,7 +124,7 @@ _garments.scss
 
 .card-garment {
   overflow: hidden;
-  background: white;
+  background: #121212;
   width: calc(100% - 20px);
   max-width: 250px;
   height: 400px;
@@ -162,7 +160,7 @@ _garments.scss
 
 .card-garment-infos .garment-title {
   margin-top: 5px;
-  color: black;
+  color: white;
   text-align: left;
   font-size: 16px;
   font-family: "Spectral", serif;
@@ -185,12 +183,12 @@ _garments.scss
   font-weight: 400 !important;
   font-style: normal !important;
   margin-top: 3px !important;
-  color: black !important;
+  color: white !important;
   margin-bottom: 3px;
 }
 
 .card-garment .card-garment-infos .garment-brand {
-  color: black;
+  color: white;
   font-size: 14px !important;
   font-family: "Spectral", serif !important;
   font-weight: 600 !important;
@@ -211,12 +209,13 @@ _garments.scss
   justify-content: flex-start;
   position: relative;
   flex-grow: 1;
+  color: white;
 }
 
 .card-garment-pricing {
   font-size: 5px;
   font-weight: light;
-  color: black;
+  color: white;
   margin-left: 0;
 }
 
