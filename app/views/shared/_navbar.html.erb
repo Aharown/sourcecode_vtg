@@ -1,13 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-sourcecode">
   <div class="container-fluid">
-      <%= link_to garments_path, class: "d-flex align-items-center" do %>
-        <span class="navbar-brand-name ms-2">
-          SOURCECODE<span class="blinking-underscore">_</span>VTG
-        </span>
-      <% end %>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <%= link_to garments_path, class: "d-flex align-items-center" do %>
+      <span class="navbar-brand-name ms-2">
+        SOURCECODE<span class="blinking-underscore">_</span>VTG
+      </span>
+    <% end %>
+
+    <div class="d-flex align-items-center">
       <div class="search-container">
         <%= simple_form_for :search, url: garments_path, method: :get do |f| %>
           <div class="search-form-control form-group">
@@ -23,29 +22,37 @@
           </div>
         <% end %>
       </div>
-    <div class="dropdown-container">
-    <form data-controller="category" action="<%= garments_path %>" method="get" class="d-flex align-items-center" data-category-target="form">
-      <div class="dropdown">
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle">
-          &gt; Categories
-        </button>
-        <ul class="dropdown-menu">
-          <% @categories.each do |category| %>
-            <li>
-              <button
-                class="dropdown-item"
-                type="button"
-                data-action="click->category#select"
-                data-category-id="<%= category.id %>">
-                &gt;
-                <%= category.name %>
-              </button>
-            </li>
-          <% end %>
-        </ul>
-        <input data-category-target="hiddenInput" type="hidden" name="category">
+
+
+      <div class="dropdown-container me-3">
+        <form data-controller="category" action="<%= garments_path %>" method="get" class="d-flex align-items-center" data-category-target="form">
+          <div class="dropdown">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle">
+              &gt; Categories
+            </button>
+            <ul class="dropdown-menu">
+              <% @categories.each do |category| %>
+                <li>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                    data-action="click->category#select"
+                    data-category-id="<%= category.id %>">
+                    &gt;
+                    <%= category.name %>
+                  </button>
+                </li>
+              <% end %>
+            </ul>
+            <input data-category-target="hiddenInput" type="hidden" name="category">
+          </div>
+        </form>
       </div>
-    </form>
-   </div>
+
+      <%= link_to cart_path, class: "cart-container d-flex align-items-center text-decoration-none" do %>
+        <i class="fas fa-shopping-cart icon-large me-1"></i>
+        <span class="navbar-cart-text">Cart (<%= cart_count %>)</span>
+      <% end %>
+    </div>
   </div>
 </div>

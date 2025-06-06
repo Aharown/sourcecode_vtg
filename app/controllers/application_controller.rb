@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :set_categories
   before_action :set_devise_variables
   helper_method :current_cart
+  helper_method :cart_count
+
 
 
   def configure_permitted_parameters
@@ -13,6 +15,11 @@ class ApplicationController < ActionController::Base
 
   def current_cart
     session[:cart] ||= {}
+  end
+
+  def cart_count
+    return 0 unless session[:cart].present?
+    session[:cart].values.map(&:to_i).sum
   end
 
   private
