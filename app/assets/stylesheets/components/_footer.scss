@@ -1,0 +1,39 @@
+.footer-index {
+  background-color: black;
+  color: #39ff14;
+  text-align: center;
+  padding: 30px 20px;
+  font-family: 'VT323', monospace;
+
+  font-size: 20px; // or whatever size you want
+
+  .footer-line {
+    margin-bottom: 15px;
+  }
+
+  .footer-nav {
+    margin-bottom: 15px;
+
+    .footer-link {
+      color: #39ff14;
+      font-family: 'VT323', monospace;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: inherit;
+
+      &:hover {
+        color: #2ecc10; 
+      }
+    }
+  }
+
+  .links a {
+    color: #39ff14;
+    margin: 0 10px;
+    font-size: inherit;
+
+    &:hover {
+      color: #00ffcc;
+    }
+  }
+}
