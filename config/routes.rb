@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'static_pages/shipping'
+  get 'static_pages/contact'
+  get 'static_pages/terms'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, skip: [:registrations]
@@ -29,6 +32,9 @@ Rails.application.routes.draw do
   get '/thank_you', to: 'payments#thank_you', as: :thank_you
   get 'checkout', to: 'checkout#show'
 
+  get "/shipping", to: "static_pages#shipping", as: :shipping
+  get "/contact",  to: "static_pages#contact",  as: :contact
+  get "/terms",    to: "static_pages#terms",    as: :terms
 
   resources :pages
   resources :users, only: [:show]
