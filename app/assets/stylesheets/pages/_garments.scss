@@ -18,6 +18,7 @@ _garments.scss
   align-items: center;
   justify-content: center;
   margin: 50px 0;
+  position: relative;
 }
 
 .new-in-container h3 {
@@ -35,9 +36,10 @@ _garments.scss
   content: "";
   flex-grow: 1;
   height: 1px;
-  filter: contrast(3) brightness(5);
-  background-color: whitesmoke;
+  background-color: white;
   margin: 0 10px;
+  box-shadow: 0 0 6px #39ff14, 0 0 4px white;
+  opacity: 0.8;
 }
 
 .the-ruby-edit-container {
@@ -62,9 +64,10 @@ _garments.scss
   content: "";
   flex-grow: 1;
   height: 1px;
-  filter: contrast(3) brightness(5);
-  background-color: whitesmoke;
+  background-color: white;
   margin: 0 10px;
+  box-shadow: 0 0 6px #39ff14, 0 0 4px white;
+  opacity: 0.8;
 }
 
 .grid {
