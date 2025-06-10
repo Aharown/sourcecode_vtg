@@ -60,24 +60,24 @@ body.landing-page {
   transform: translateY(-10%);
 }
 
-.pill-button {
-  margin-top: 2rem;
-  padding: 0.4rem 2rem;
-  background-color: #ff0033;
-  color: black;
-  border: none;
-  border-radius: 999px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  text-decoration: none;
-  font-family: 'VT323', monospace;
-  transition: background-color 0.3s;
-  z-index: 2;
+// .pill-button {
+//   margin-top: 2rem;
+//   padding: 0.4rem 2rem;
+//   background-color: #ff0033;
+//   color: black;
+//   border: none;
+//   border-radius: 999px;
+//   font-size: 1.2rem;
+//   cursor: pointer;
+//   text-decoration: none;
+//   font-family: 'VT323', monospace;
+//   transition: background-color 0.3s;
+//   z-index: 2;
 
-  &:hover {
-    background-color: #cc0029;
-  }
-}
+//   &:hover {
+//     background-color: #cc0029;
+//   }
+// }
 
 .typed-line {
   font-size: 2rem;
