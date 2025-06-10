@@ -18,7 +18,7 @@
         <% if @garment.sold? %>
           <p class="sold-label">SOLD</p>
         <% else %>
-          <%= button_to "Add to Cart", cart_items_path(item_id: @garment.id), method: :post %>
+          <%= button_to "Add to Cart", cart_items_path(item_id: @garment.id), method: :post, class: "pill-button pill-button--small" %>
         <% end %>
 
         <div id="checkout" data-garment-id="<%= @garment.id %>"></div>

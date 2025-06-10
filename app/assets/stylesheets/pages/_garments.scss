@@ -88,6 +88,13 @@ _garments.scss
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 50px 20px;
   padding-left: 359px;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: 'VT323', monospace !important;
+  min-height: 400px;
 }
 
 .card-title {
@@ -111,20 +118,6 @@ _garments.scss
   opacity: 0.9;
 }
 
-.card-button:hover {
-  background-color: #FF0000;
-  color: #fff;
-}
-
-.card-category {
-  display: flex;
-  color: white;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  min-height: 400px;
-}
-
 .card-garment {
   overflow: hidden;
   background: #121212;
@@ -138,6 +131,7 @@ _garments.scss
   box-sizing: border-box;
   border: none;
   margin: 0 auto;
+  font-family: 'VT323', monospace !important;
 }
 
 .card-garment:hover {
@@ -152,38 +146,19 @@ _garments.scss
   margin-bottom: 1px;
 }
 
-.card-garment .card-garment-infos {
-  padding: 3px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  position: relative;
-  flex-grow: 1;
-}
-
 .card-garment-infos .garment-title {
   margin-top: 5px;
   color: white;
   text-align: left;
   font-size: 16px;
-  font-family: "Spectral", serif;
-  font-weight: 600;
+  font-family: 'VT323', monospace !important;  font-weight: 600;
   font-style: normal;
   margin-bottom: 3px;
 }
 
-.card-garment-infos .card-garment-pricing {
-  font-size: 14px;
-  font-family: "Spectral", serif;
-  font-weight: 400;
-  font-style: normal;
-  margin-top: 3px;
-}
-
 .card-garment .card-garment-infos .garment-size {
   font-size: 14px !important;
-  font-family: "Spectral", serif !important;
-  font-weight: 400 !important;
+  font-family: 'VT323', monospace !important;
   font-style: normal !important;
   margin-top: 3px !important;
   color: white !important;
@@ -193,8 +168,7 @@ _garments.scss
 .card-garment .card-garment-infos .garment-brand {
   color: white;
   font-size: 14px !important;
-  font-family: "Spectral", serif !important;
-  font-weight: 600 !important;
+  font-family: 'VT323', monospace !important;
   font-style: normal !important;
 }
 
@@ -213,13 +187,19 @@ _garments.scss
   position: relative;
   flex-grow: 1;
   color: white;
+  padding: 3px;
+  display: flex;
+  font-family: 'VT323', monospace !important;
 }
 
 .card-garment-pricing {
-  font-size: 5px;
   font-weight: light;
   color: white;
   margin-left: 0;
+  font-size: 20px;
+  font-family: 'VT323', monospace !important;  font-weight: 400;
+  font-style: normal;
+  margin-top: 3px;
 }
 
 .card-garment-infos .card-garment-user {
