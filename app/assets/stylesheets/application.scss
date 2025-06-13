@@ -198,6 +198,12 @@ body {
   }
 }
 
+.pill-button[disabled] {
+  background-color: #cc0029;
+  cursor: default !important;
+  opacity: 0.6;
+}
+
 .hidden {
   display: none;
 }

@@ -17,6 +17,8 @@
 
         <% if @garment.sold? %>
           <p class="sold-label">SOLD</p>
+        <% elsif session[:cart]&.key?(@garment.id.to_s) %>
+          <button class="pill-button pill-button--small" disabled>Already in Cart</button>
         <% else %>
           <div
             data-controller="add-to-cart"
@@ -37,7 +39,7 @@
               <a href="<%= garments_path %>" class="pill-button pill-button--small">Continue Shopping</a>
             </div>
           </div>
-        <% end %> 
+        <% end %>
 
         <div id="checkout" data-garment-id="<%= @garment.id %>"></div>
       </div>
