@@ -49,10 +49,18 @@
         </form>
       </div>
 
-      <%= link_to cart_path, class: "cart-container d-flex align-items-center text-decoration-none" do %>
-        <i class="fas fa-shopping-cart icon-large me-1"></i>
-        <span class="navbar-cart-text vt323">Cart (<%= cart_count %>)</span>
-      <% end %>
+      <div data-controller="cart">
+        <%= link_to cart_path, class: "cart-container d-flex align-items-center text-decoration-none" do %>
+          <i class="fas fa-shopping-cart icon-large me-1"></i>
+          <span class="navbar-cart-text vt323">
+            Cart (
+            <span data-cart-target="count" id="cart-count">
+              <%= cart_count %>
+            </span>
+            )
+          </span>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
