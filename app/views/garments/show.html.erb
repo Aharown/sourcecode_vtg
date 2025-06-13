@@ -18,8 +18,26 @@
         <% if @garment.sold? %>
           <p class="sold-label">SOLD</p>
         <% else %>
-          <%= button_to "Add to Cart", cart_items_path(item_id: @garment.id), method: :post, class: "pill-button pill-button--small" %>
-        <% end %>
+          <div
+            data-controller="add-to-cart"
+            data-add-to-cart-item-id-value="<%= @garment.id %>"
+          >
+            <%= button_to "Add to Cart",
+                cart_items_path,
+                method: :post,
+                class: "pill-button pill-button--small",
+                data: {
+                  action: "add-to-cart#add",
+                  add_to_cart_target: "button"
+                },
+                form: { "data-turbo" => "false" } %>
+
+            <div data-add-to-cart-target="actions" class="hidden">
+              <a href="<%= cart_path %>" class="pill-button pill-button--small">View Cart</a>
+              <a href="<%= garments_path %>" class="pill-button pill-button--small">Continue Shopping</a>
+            </div>
+          </div>
+        <% end %> 
 
         <div id="checkout" data-garment-id="<%= @garment.id %>"></div>
       </div>
