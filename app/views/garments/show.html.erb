@@ -3,9 +3,35 @@
     <div class="styles-container-grid">
       <div class="styles-images-container">
         <% if @garment.photos.attached? %>
-          <% @garment.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class:"garment-image", alt: @garment.title %>
-          <% end %>
+          <div id="carouselWithThumbs" class="carousel slide">
+            <div class="carousel-inner">
+              <% @garment.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= 'active' if index == 0 %>">
+                  <%= cl_image_tag photo.key, class:"garment-image", alt: @garment.title %>
+                </div>
+              <% end %>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselWithThumbs" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselWithThumbs" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+
+            <div class="d-flex justify-content-center mt-1">
+              <% @garment.photos.each_with_index do |photo, index| %>
+                <button type="button"
+                        data-bs-target="#carouselWithThumbs"
+                        data-bs-slide-to="<%= index %>"
+                        class="<%= 'active' if index == 0 %>"
+                        aria-current="<%= 'true' if index == 0 %>"
+                        aria-label="Slide <%= index + 1 %>">
+                  <%= cl_image_tag photo.key, class: "img-thumbnail mx-1", style: "height: 60px; width: auto;" %>
+                </button>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       </div>
       <div class="styles-info-container">
@@ -35,8 +61,8 @@
                 form: { "data-turbo" => "false" } %>
 
             <div data-add-to-cart-target="actions" class="hidden">
-              <a href="<%= cart_path %>" class="pill-button pill-button--small">View Cart</a>
-              <a href="<%= garments_path %>" class="pill-button pill-button--small">Continue Shopping</a>
+              <a href="<%= cart_path %>" class="pill-button pill-button--small cart-nav-btn">View Cart</a>
+              <a href="<%= garments_path %>" class="pill-button pill-button--small cart-nav-btn">Continue Shopping</a>
             </div>
           </div>
         <% end %>
