@@ -1,26 +1,49 @@
-<h2>Your Cart</h2>
+<div class="cart-page-container">
+  <h2>Your Cart</h2>
 
-<% if @cart_items.empty? %>
-  <p>Your cart is empty.</p>
-<% else %>
-  <ul>
-    <% @cart_items.each do |entry| %>
-      <li>
-        <% if entry[:item].photos.attached? %>
-          <%= cl_image_tag entry[:item].photos.first.key, class: "garment-image", alt: entry[:item].title, width: 20, height: 20 %>
-        <% else %>
-          <img src="<%= asset_path('placeholder-image.jpg') %>" alt="Placeholder Image" class="garment-image" width="50" height="50">
+  <% if @cart_items.empty? %>
+    <p>Your cart is empty.</p>
+  <% else %>
+    <div class="cart-grid">
+      <div class="cart-items-list">
+        <% @cart_items.each do |entry| %>
+          <div class="cart-item">
+            <%= link_to garment_path(entry[:item]) do %>
+              <% if entry[:item].photos.attached? %>
+                <%= cl_image_tag entry[:item].photos.first.key, class: "cart-image", alt: entry[:item].title %>
+              <% else %>
+                <img src="<%= asset_path('placeholder-image.jpg') %>" alt="Placeholder Image" class="cart-image">
+              <% end %>
+            <% end %>
+
+            <div class="cart-item-info">
+              <h3><%= entry[:item].title %></h3>
+              <p>Price: £<%= entry[:item].price %></p>
+              <p>Size: <%= entry[:item].size %></p>
+              <p>Brand: <%= entry[:item].brand %></p>
+              <%= button_to "Remove", cart_item_path(entry[:item]), method: :delete, class: "pill-button pill-button--small" %>
+            </div>
+          </div>
         <% end %>
+      </div>
 
-        <%= entry[:item].title %>
-        - Price: £<%= entry[:item].price %>
-        - Total: £<%= entry[:item].price * entry[:quantity] %>
 
-        <%= button_to "Remove", cart_item_path(entry[:item]), method: :delete %>
-      </li>
-    <% end %>
-  </ul>
+      <div class="cart-summary">
+        <div class="cart-summary-items">
+          <% @cart_items.each do |entry| %>
+            <p><%= entry[:item].title %>: £<%= entry[:item].price * entry[:quantity] %></p>
+          <% end %>
+        </div>
 
-  <p><strong>Total: £<%= @cart_items.sum { |entry| entry[:item].price * entry[:quantity] } %></strong></p>
-  <button id="checkout-button" class="btn btn-primary">Checkout</button>
-<% end %>
+        <div class="cart-summary-total" style="margin-top: auto; padding-top: 1rem;">
+          <p><strong>Total: £<%= @cart_items.sum { |entry| entry[:item].price * entry[:quantity] } %></strong></p>
+        </div>
+
+        <div class="cart-summary-actions">
+          <%= link_to "Continue Shopping", garments_path, class: "pill-button pill-button--small cart-nav-btn" %>
+          <button id="checkout-button" class="pill-button pill-button--small cart-nav-btn">Checkout</button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
