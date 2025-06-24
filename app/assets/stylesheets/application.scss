@@ -16,6 +16,7 @@
 @import "components/navbar";
 @import "components/footer";
 @import "pages/terms";
+@import "pages/cart";
 
 .btn-ghost {
   color: #4A4A4A;
@@ -65,6 +66,10 @@ body.form-page {
   font-weight: bold;
   margin-bottom: 5px;
   font-size: 18px;
+}
+
+.h3 {
+  font-family: 'VT323', monospace !important;
 }
 
 .form-control {

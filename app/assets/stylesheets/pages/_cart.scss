@@ -1,0 +1,72 @@
+.cart-page-container {
+  background-color: #121212;
+  color: #39ff14;
+  font-family: 'VT323', monospace;
+  padding: 40px;
+}
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.h3 {
+  font-family: 'VT323', monospace !important;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 20px;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border: 1px #1e1e1e;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #1e1e1e;
+}
+
+.cart-image {
+  width: 180px;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid white;
+  box-shadow: 0 0 5px #39ff14;
+}
+
+.cart-item-info h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #39ff14;
+  font-family: 'VT323', monospace !important;
+}
+
+.cart-item-info p {
+  margin: 5px 0;
+}
+
+.cart-summary {
+  padding: 20px;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #1e1e1e;
+}
+
+.cart-summary-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.pill-button {
+  margin-top: 1rem;
+}
