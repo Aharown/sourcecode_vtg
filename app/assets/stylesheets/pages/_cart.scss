@@ -61,10 +61,31 @@
   box-shadow: 0 0 5px #1e1e1e;
 }
 
+.cart-summary-note {
+  margin-bottom: 0.1rem;
+  font-size: 16px;
+  color: #39ff14;
+  text-align: left;
+}
+
+.cart-summary-total {
+  font-size: 20px;
+  font-weight: normal;
+  color: #39ff14;
+  text-align: left;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 10px 0 0;
+}
+
 .cart-summary-actions {
   display: flex;
   gap: 1rem;
-  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.cart-summary-items {
+  margin-bottom: auto;
 }
 
 .pill-button {
