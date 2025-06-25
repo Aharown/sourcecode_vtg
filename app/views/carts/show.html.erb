@@ -35,9 +35,11 @@
           <% end %>
         </div>
 
-        <div class="cart-summary-total" style="margin-top: auto; padding-top: 1rem;">
-          <p><strong>Total: £<%= @cart_items.sum { |entry| entry[:item].price * entry[:quantity] } %></strong></p>
+        <div class="cart-summary-total">
+          <p><strong>Subtotal: £<%= @cart_items.sum { |entry| entry[:item].price * entry[:quantity] } %></strong></p>
         </div>
+
+        <p class="cart-summary-note">Shipping & taxes calculated at checkout</p>
 
         <div class="cart-summary-actions">
           <%= link_to "Continue Shopping", garments_path, class: "pill-button pill-button--small cart-nav-btn" %>
