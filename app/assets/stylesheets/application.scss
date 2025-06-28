@@ -17,6 +17,7 @@
 @import "components/footer";
 @import "pages/terms";
 @import "pages/cart";
+@import "pages/checkout";
 
 .btn-ghost {
   color: #4A4A4A;
@@ -181,7 +182,7 @@ body {
 .pill-button {
   margin-top: 2rem;
   padding: 0.4rem 2rem;
-  background-color: #ff0033;
+  background-color: #E60026;
   color: black;
   border: none;
   border-radius: 999px;

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get "/shipping", to: "static_pages#shipping", as: :shipping
   get "/contact",  to: "static_pages#contact",  as: :contact
   get "/terms",    to: "static_pages#terms",    as: :terms
+  # root "garments#index"
 
   resources :pages
   resources :users, only: [:show]
