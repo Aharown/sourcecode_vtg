@@ -44,7 +44,7 @@
         <p>Details: <%= @garment.description %></p>
 
         <% if @garment.sold? %>
-          <p class="sold-label">SOLD</p>
+          <button disabled class="sold-button">SOLD</button>
         <% elsif session[:cart]&.key?(@garment.id.to_s) %>
           <button class="pill-button pill-button--small" disabled>Already in Cart</button>
         <% else %>

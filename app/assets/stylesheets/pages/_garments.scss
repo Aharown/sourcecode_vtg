@@ -235,17 +235,6 @@ _garments.scss
   opacity: 0.5;
 }
 
-.sold-label {
-  color: red;
-  font-weight: bold;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: white;
-  padding: 5px;
-  border-radius: 5px;
-}
-
 @media (max-width: 1200px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
