@@ -30,9 +30,12 @@ class PaymentsController < ApplicationController
 
   def thank_you
     if params[:session_id].present?
-      session[:cart] = {} 
-      session = Stripe::Checkout::Session.retrieve(params[:session_id])
-      @customer_email = session.customer_details.email # Clear the cart
+      session[:cart] = {}
+      stripe_session = Stripe::Checkout::Session.retrieve(params[:session_id])
+      garment_ids = stripe_session.metadata["garment_ids"].split(',')
+      Garment.where(id: garment_ids).update_all(sold: true)
+
+      @customer_email = stripe_session.customer_details.email
     end
   end
 end
