@@ -1,66 +1,112 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-sourcecode">
-  <div class="container-fluid">
-    <%= link_to garments_path, class: "d-flex align-items-center" do %>
-      <span class="navbar-brand-name ms-2">
+<nav class="navbar navbar-expand-md navbar-light navbar-sourcecode">
+  <div class="container-fluid position-relative">
+
+
+    <div class="d-md-none position-absolute start-0 top-50 translate-middle-y ps-2">
+      <div data-controller="search-toggle">
+        <button data-action="click->search-toggle#toggle"
+                class="btn p-0 icon-button"
+                aria-label="Toggle search">
+          <i class="fas fa-search small-icon brand-colored-icon"></i>
+        </button>
+      </div>
+    </div>
+
+
+    <%= link_to garments_path, class: "navbar-brand mx-auto mx-md-0 ps-md-2 d-flex align-items-center text-decoration-none" do %>
+      <span class="navbar-brand-name ms-2 small d-md-inline">
         SOURCECODE<span class="blinking-underscore">_</span>VTG
       </span>
     <% end %>
 
-    <div class="d-flex align-items-center">
-      <div class="search-container">
-        <%= simple_form_for :search, url: garments_path, method: :get do |f| %>
-          <div class="search-form-control form-group">
-            <input
-              class="form-control string required terminal-input"
-              type="text"
-              name="search[query]"
-              id="search_query"
-              data-controller="placeholder"
-              data-placeholder-target="input"
-              data-action="focus->placeholder#hidePlaceholder blur->placeholder#restorePlaceholder"
-              placeholder="> Searching..." />
-          </div>
-        <% end %>
-      </div>
+
+    <div class="d-flex d-md-none align-items-center gap-2 position-absolute end-0 top-50 translate-middle-y me-2">
+      <%= link_to cart_path, class: "d-flex align-items-center text-decoration-none" do %>
+        <i class="fas fa-shopping-cart small-icon brand-colored-icon"></i>
+      <% end %>
+    </div>
 
 
-      <div class="dropdown-container me-3">
-        <form data-controller="category" action="<%= garments_path %>" method="get" class="d-flex align-items-center" data-category-target="form">
-          <div class="dropdown">
-            <button type="button" class="btn btn-outline-secondary dropdown-toggle">
-              &gt; Categories
-            </button>
-            <ul class="dropdown-menu">
-              <% @categories.each do |category| %>
-                <li>
-                  <button
-                    class="dropdown-item"
-                    type="button"
-                    data-action="click->category#select"
-                    data-category-id="<%= category.id %>">
-                    &gt;
-                    <%= category.name %>
-                  </button>
-                </li>
-              <% end %>
-            </ul>
-            <input data-category-target="hiddenInput" type="hidden" name="category">
-          </div>
-        </form>
-      </div>
+    <button class="navbar-toggler me-4" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon small-toggler"></span>
+    </button>
 
-      <div data-controller="cart">
-        <%= link_to cart_path, class: "cart-container d-flex align-items-center text-decoration-none" do %>
-          <i class="fas fa-shopping-cart icon-large me-1"></i>
-          <span class="navbar-cart-text vt323">
-            Cart (
-            <span data-cart-target="count" id="cart-count">
-              <%= cart_count %>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="ms-auto d-none d-md-flex align-items-center">
+
+
+        <div class="search-container search-offset me-3">
+          <%= simple_form_for :search, url: garments_path, method: :get do |f| %>
+            <div class="search-form-control form-group">
+              <input
+                class="form-control string required terminal-input"
+                type="text"
+                name="search[query]"
+                id="search_query"
+                data-controller="placeholder"
+                data-placeholder-target="input"
+                data-action="focus->placeholder#hidePlaceholder blur->placeholder#restorePlaceholder"
+                placeholder="> Searching..." />
+            </div>
+          <% end %>
+        </div>
+
+
+        <div class="dropdown-container me-3">
+          <form data-controller="category" action="<%= garments_path %>" method="get"
+                class="d-flex align-items-center" data-category-target="form">
+            <div class="dropdown">
+              <button type="button" class="btn btn-outline-secondary dropdown-toggle">
+                &gt; Categories
+              </button>
+              <ul class="dropdown-menu">
+                <% @categories.each do |category| %>
+                  <li>
+                    <button class="dropdown-item" type="button"
+                            data-action="click->category#select"
+                            data-category-id="<%= category.id %>">
+                      &gt; <%= category.name %>
+                    </button>
+                  </li>
+                <% end %>
+              </ul>
+              <input data-category-target="hiddenInput" type="hidden" name="category">
+            </div>
+          </form>
+        </div>
+
+
+        <div data-controller="cart">
+          <%= link_to cart_path, class: "cart-container d-flex align-items-center text-decoration-none" do %>
+            <i class="fas fa-shopping-cart fs-4 me-1 d-none d-md-inline"></i>
+            <span class="navbar-cart-text vt323">
+              Cart (<span data-cart-target="count" id="cart-count"><%= cart_count %></span>)
             </span>
-            )
-          </span>
-        <% end %>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>
+</nav>
+
+
+<div data-search-toggle-target="form" class="container-fluid d-md-none px-3 mt-2 d-none">
+  <%= simple_form_for :search, url: garments_path, method: :get do |f| %>
+    <div class="form-group mb-0">
+      <input
+        class="form-control terminal-input w-100"
+        type="text"
+        name="search[query]"
+        id="mobile_search_query"
+        placeholder="> Searching..."
+        autocomplete="off" />
+    </div>
+  <% end %>
 </div>
