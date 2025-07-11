@@ -1,0 +1,26 @@
+<div data-search-overlay-target="overlay"
+     class="search-overlay d-none"
+     tabindex="-1"
+     data-action="keydown@window->search-overlay#close">
+
+
+  <button type="button"
+          class="btn-close btn-close-white position-absolute top-0 start-0 m-3"
+          aria-label="Close"
+          data-action="click->search-overlay#close">
+  </button>
+
+  <div class="search-overlay-content overlay-content">
+    <%= simple_form_for :search, url: garments_path, method: :get do |f| %>
+      <div class="form-group">
+        <input
+          type="text"
+          name="search[query]"
+          placeholder="> Searching..."
+          class="form-control terminal-input"
+          data-search-overlay-target="input"
+          autocomplete="off" />
+      </div>
+    <% end %>
+  </div>
+</div>
