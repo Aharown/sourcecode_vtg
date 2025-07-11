@@ -6,5 +6,5 @@ import CartController from "./cart_controller"
 application.register("cart", CartController)
 eagerLoadControllersFrom("controllers", application)
 application.register("add-to-cart", AddToCartController)
-import SearchToggleController from "./search_toggle_controller"
-application.register("search-toggle", SearchToggleController)
+import SearchOverlayController from "./search_overlay_controller"
+application.register("search-overlay", SearchOverlayController)

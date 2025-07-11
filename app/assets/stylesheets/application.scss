@@ -229,3 +229,28 @@ a {
 .cart-nav-btn:not(:last-child) {
   margin-right: 0.6rem;
 }
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1050;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4rem;
+}
+
+.search-overlay-content {
+  width: 85%;
+  max-width: 500px;
+  margin-top: 2rem;
+}
+
+.search-overlay input {
+  font-size: 1.25rem;
+  padding: 0.75rem;
+}
