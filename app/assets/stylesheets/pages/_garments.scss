@@ -84,19 +84,22 @@ _garments.scss
   background-size: cover;
   background-position: center;
   height: 480px;
-  color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 50px 20px;
   padding-left: 359px;
   display: flex;
-  color: white;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   font-family: 'VT323', monospace !important;
   min-height: 400px;
+
+  @media (max-width: 768px) {
+    padding-left: 20px;
+    text-align: left;
+  }
 }
 
 .card-title {
@@ -244,6 +247,14 @@ _garments.scss
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-title {
+    font-size: 1.8rem !important; // or smaller like 1.2rem
+  }
+
+  .card-subtitle {
+    font-size: 1.1rem !important; // or smaller like 0.75rem
   }
 }
 
