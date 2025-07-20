@@ -41,6 +41,10 @@ body.form-page {
   background-color: #ffffff;
 }
 
+html, body {
+  min-height: 100vh;
+}
+
 .form-main-styles-container {
   margin: 0px auto;
   max-width: 800px;
