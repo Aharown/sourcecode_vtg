@@ -23,20 +23,25 @@
       (controller_name == 'garments' && %w[new edit].include?(action_name) ? 'form-page' : nil),
       (controller_name == 'pages' && action_name == 'home' ? 'landing-page' : nil)
     ].compact.join(' ') %>">
+
       <% unless controller_name == 'sessions' || controller_name == 'registrations' %>
-        <%= render 'shared/navbar' %>
+        <div data-controller="category-overlay search-overlay">
+          <%= render 'shared/navbar' %>
+          <%= render "shared/search_overlay" %>
+          <%= render "shared/category_overlay" %>
+        </div>
       <% end %>
+
       <% unless controller_name == 'pages' && action_name == 'home' %>
         <%= render 'shared/ticker' %>
       <% end %>
+
       <%= render "shared/flashes" %>
       <%= yield %>
 
       <% unless controller_name == 'pages' && action_name == 'home' %>
       <%= render "shared/footer" %>
       <% end %>
-
-      <%= render "shared/search_overlay" %>
 
       <script>
         window.StripePublishableKey = "<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>";
