@@ -8,3 +8,5 @@ eagerLoadControllersFrom("controllers", application)
 application.register("add-to-cart", AddToCartController)
 import SearchOverlayController from "./search_overlay_controller"
 application.register("search-overlay", SearchOverlayController)
+import CategoryOverlayController from "./category_overlay_controller"
+application.register("category-overlay", CategoryOverlayController)

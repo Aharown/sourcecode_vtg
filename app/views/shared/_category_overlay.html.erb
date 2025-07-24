@@ -1,0 +1,25 @@
+<div data-category-overlay-target="overlay"
+     class="category-overlay d-none"
+     tabindex="-1"
+     data-action="keydown@window->category-overlay#close">
+
+  <button type="button"
+          class="btn-close btn-close-white position-absolute top-0 start-0 m-3"
+          aria-label="Close"
+          data-action="click->category-overlay#close">
+  </button>
+
+  <div class="overlay-content">
+    <h2 class="overlay-title">Categories</h2>
+    <ul class="category-list">
+      <% @categories.each do |category| %>
+        <li>
+          <%= link_to garments_path(category: category.id),
+                      class: "overlay-link" do %>
+            &gt; <%= category.name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

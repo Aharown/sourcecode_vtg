@@ -249,6 +249,52 @@ $font-mono: 'VT323', monospace;
   align-items: center;
 }
 
+.category-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  padding-top: 6rem;
+}
+
+.overlay-content {
+  text-align: left;
+  color: #00ff00;
+  font-family: 'VT323', monospace;
+}
+
+.overlay-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+}
+
+.overlay-link {
+  display: block;
+  font-size: 1.4rem;
+  color: #00ff00;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+
+  &:hover {
+    color: #39ff14;
+    text-shadow: 0 0 4px #00ff00;
+  }
+}
 .terminal-input {
   background-color: black;
   color: $green !important;
@@ -283,6 +329,19 @@ $font-mono: 'VT323', monospace;
     transition: background-color 9999s ease-in-out 0s !important;
     font-family: $font-mono !important;
   }
+}
+
+.category-list li {
+  display: flex;
+  justify-content: flex-start; // optional, aligns left
+}
+
+.category-list li .overlay-link {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  padding: 0.25rem 0; // keep vertical spacing
+  white-space: nowrap;
 }
 
 .blinking-underscore {

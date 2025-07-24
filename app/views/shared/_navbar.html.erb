@@ -26,11 +26,8 @@
 
 
       <button class="navbar-toggler me-4" type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
+              data-action="click->category-overlay#open"
+              aria-label="Toggle categories overlay">
         <span class="navbar-toggler-icon small-toggler"></span>
       </button>
 
@@ -94,4 +91,6 @@
   </nav>
 
   <%= render "shared/search_overlay" %>
+  <%= render "shared/category_overlay" %>
+
 </div>
