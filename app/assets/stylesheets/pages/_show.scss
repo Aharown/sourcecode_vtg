@@ -102,6 +102,7 @@ html, body {
   max-width: 100%;
   padding-top: 20px;
   padding-right: 20px;
+  position: relative;
 }
 
 .styles-info-container h1 {
@@ -122,7 +123,6 @@ html, body {
   color: #39ff14;
   margin: 10px 0;
 }
-
 
 .sold-button {
   background-color: #FE0000;
@@ -148,5 +148,23 @@ html, body {
 @media (max-width: 576px) {
   .styles-container-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .styles-info-container {
+    padding-top: 10px;
+    padding-bottom: 40px;
+  }
+
+  .styles-images-container {
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .styles-info-container p {
+    margin-bottom: 6px;
   }
 }
