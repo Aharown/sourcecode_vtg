@@ -4,10 +4,14 @@
 
       <% if show_all_photos %>
         <% garment.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, class: 'card-garment-img', alt: garment.title %>
+          <div class="garment-image-wrapper">
+            <%= cl_image_tag photo.key, class: 'card-garment-img', alt: garment.title %>
+          </div>
         <% end %>
       <% else %>
-        <%= cl_image_tag garment.photos.first.key, class:"card-garment-img", alt: garment.title %>
+        <div class="garment-image-wrapper">
+          <%= cl_image_tag garment.photos.first.key, class:"card-garment-img", alt: garment.title %>
+        </div>
       <% end %>
 
       <div class="card-garment-infos">
