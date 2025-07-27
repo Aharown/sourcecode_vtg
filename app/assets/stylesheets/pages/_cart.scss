@@ -91,3 +91,22 @@
 .pill-button {
   margin-top: 1rem;
 }
+
+@media (max-width: 576px) {
+  .cart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-items-list,
+  .cart-summary {
+    width: 100%;
+  }
+
+  .cart-item-info h3 {
+    font-size: 20px;
+  }
+
+  .cart-summary {
+    margin-top: 20px;
+  }
+}
