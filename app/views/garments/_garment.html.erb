@@ -19,10 +19,6 @@
         <p class="card-garment-pricing">£<%= garment.price %></p>
         <p class="garment-size">Size: <%= garment.size %></p>
         <p class="garment-brand"><%= garment.brand %></p>
-
-        <% if garment.sold? %>
-          <p class="sold-label">SOLD</p>
-        <% end %>
       </div>
     </div>
   <% end %>
