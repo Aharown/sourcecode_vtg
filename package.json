@@ -1,8 +1,12 @@
 {
-  "name": "-ruby_garments",
+  "name": "-sourcecode_vtg",
   "version": "1.0.0",
-  "description": "Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.",
+  "description": "Vintage streetwear clothing brand sourcing the rarest pieces from east to west.",
   "main": "index.js",
+  "engines": {
+    "node": "23.20.0",
+    "yarn": "1.22.22"
+  },
   "directories": {
     "lib": "lib",
     "test": "test"
