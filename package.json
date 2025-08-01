@@ -4,7 +4,7 @@
   "description": "Vintage streetwear clothing brand sourcing the rarest pieces from east to west.",
   "main": "index.js",
   "engines": {
-    "node": "23.20.0",
+    "node": "20.x",
     "yarn": "1.22.22"
   },
   "directories": {
