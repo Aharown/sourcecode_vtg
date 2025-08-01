@@ -26,7 +26,6 @@ export default class extends Controller {
         this.buttonTarget.classList.add("hidden");
         this.actionsTarget.classList.remove("hidden");
 
-        // 👉 Dispatch cart update event
         this.dispatch("cart:updated", { detail: { increment: 1 }, prefix: false });
       })
       .catch(error => {
