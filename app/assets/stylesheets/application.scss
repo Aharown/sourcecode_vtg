@@ -265,4 +265,12 @@ a {
   opacity: 0.8;
 }
 
+.cart-layout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
+.cart-page-container {
+  flex: 1;
+}
