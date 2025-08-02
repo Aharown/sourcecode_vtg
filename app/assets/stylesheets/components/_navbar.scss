@@ -336,14 +336,14 @@ $font-mono: 'VT323', monospace;
 
 .category-list li {
   display: flex;
-  justify-content: flex-start; // optional, aligns left
+  justify-content: flex-start; 
 }
 
 .category-list li .overlay-link {
   display: inline-block;
   width: auto;
   max-width: 100%;
-  padding: 0.25rem 0; // keep vertical spacing
+  padding: 0.25rem 0;
   white-space: nowrap;
 }
 
