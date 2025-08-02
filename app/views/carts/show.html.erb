@@ -3,7 +3,13 @@
     <h2>Your Cart</h2>
 
     <% if @cart_items.empty? %>
-      <p>Your cart is empty.</p>
+      <div class="cart-empty-message">
+        <p class="cart-empty-text">Cart failed to load… or is empty?</p>
+
+        <div class="empty-cart-wrapper">
+          <img src="<%= asset_path('emptycart gif 1.gif') %>" alt="Matrix Empty Cart" class="empty-cart-gif">
+        </div>
+      </div>
     <% else %>
       <div class="cart-grid">
         <div class="cart-items-list">
