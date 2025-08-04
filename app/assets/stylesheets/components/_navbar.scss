@@ -109,8 +109,8 @@ $font-mono: 'VT323', monospace;
 
 .small-toggler {
   filter: invert(100%);
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
 
   @media (max-width: 767.98px) {
     transform: scale(0.9);
@@ -122,7 +122,7 @@ $font-mono: 'VT323', monospace;
   line-height: 1;
 
   @media (max-width: 767.98px) {
-    font-size: 1.1rem !important;
+    font-size: 0.9rem !important;
   }
 }
 
@@ -139,6 +139,13 @@ $font-mono: 'VT323', monospace;
   font-family: $font-mono;
   font-size: 1.3rem;
   margin-right: 45px;
+}
+
+@media (max-width: 767.98px) {
+  .d-flex.d-md-none.position-absolute.end-0.top-50.translate-middle-y.me-2 {
+    top: 50%;
+    transform: translateY(calc(-50% + 1px)) !important;
+  }
 }
 
 .navbar-cart-text {
@@ -336,7 +343,7 @@ $font-mono: 'VT323', monospace;
 
 .category-list li {
   display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
 }
 
 .category-list li .overlay-link {
