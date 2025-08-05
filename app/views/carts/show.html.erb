@@ -16,8 +16,8 @@
           <% @cart_items.each do |entry| %>
             <div class="cart-item">
               <%= link_to garment_path(entry[:item]) do %>
-                <% if entry[:item].photos.attached? %>
-                  <%= cl_image_tag entry[:item].photos.first.key, class: "cart-image", alt: entry[:item].title %>
+                <% if entry[:item].cloudinary_photos.present? %>
+                  <%= image_tag entry[:item].cloudinary_photos.first, class: "cart-image", alt: entry[:item].title %>
                 <% else %>
                   <img src="<%= asset_path('placeholder-image.jpg') %>" alt="Placeholder Image" class="cart-image">
                 <% end %>
