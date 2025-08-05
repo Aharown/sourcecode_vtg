@@ -1,11 +1,11 @@
 class GarmentsController < ApplicationController
-  before_action :set_garment, only: [:show]
-  before_action :require_admin, only: [:new, :edit]
+  before_action :set_garment, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @categories = Category.all
 
-    if params[:search].present? && params[:search][:query].present?
+    if params.dig(:search, :query).present?
       query = params[:search][:query]
       @garments = Garment.where("title ILIKE ?", "%#{query}%")
     elsif params[:category].present?
@@ -24,7 +24,6 @@ class GarmentsController < ApplicationController
   end
 
   def edit
-    @garment = Garment.find(params[:id])
   end
 
   def create
@@ -32,40 +31,23 @@ class GarmentsController < ApplicationController
 
     if @garment.save
       create_stripe_product(@garment)
-
       redirect_to @garment
+    else
+      flash.now[:alert] = "Could not create garment: #{@garment.errors.full_messages.join(', ')}"
+      render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    @garment = Garment.find(params[:id])
   end
 
   def update
-    @garment = Garment.find(params[:id])
-
-    if params[:garment][:photos].present?
-      params[:garment][:photos].each do |photo|
-        @garment.photos.attach(photo)
-      end
-    end
-
-    if params[:remove_photos].present?
-      params[:remove_photos].each do |photo_id|
-        @garment.photos.find(photo_id).purge
-      end
-    end
-
-    if @garment.update(garment_params.except(:photos))
+    if @garment.update(garment_params)
       redirect_to @garment
     else
-      render :edit
+      flash.now[:alert] = "Could not update garment: #{@garment.errors.full_messages.join(', ')}"
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @garment = Garment.find(params[:id])
-
     if @garment.stripe_product_id.present?
       begin
         Stripe::Product.update(@garment.stripe_product_id, { active: false })
@@ -79,13 +61,15 @@ class GarmentsController < ApplicationController
   end
 
   def create_stripe_product(garment)
-    images = garment.photos.map { |photo| url_for(photo) }
+    images = garment.cloudinary_photos.presence || []
 
-    stripe_product = Stripe::Product.create({
+    product_params = {
       name: garment.title,
-      description: garment.description,
-      images: images
-    })
+      description: garment.description
+    }
+    product_params[:images] = images if images.any?
+
+    stripe_product = Stripe::Product.create(product_params)
 
     stripe_price = Stripe::Price.create({
       product: stripe_product.id,
@@ -102,11 +86,18 @@ class GarmentsController < ApplicationController
   private
 
   def garment_params
-    params.require(:garment).permit(:title, :description, :category_id, :brand, :size, :price, photos: [])
+    params.require(:garment).permit(
+      :title,
+      :description,
+      :category_id,
+      :brand,
+      :size,
+      :price,
+      :cloudinary_photos_raw
+    )
   end
 
   def set_garment
     @garment = Garment.find(params[:id])
   end
-
 end
