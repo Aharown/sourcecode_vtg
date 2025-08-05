@@ -1,25 +1,16 @@
 <%= link_to garment_path(garment) do %>
-  <% if garment.photos.attached? %>
-    <div class="card-garment <%= 'show-page' if show_all_photos %> <%= 'sold-out' if garment.sold? %>">
-
-      <% if show_all_photos %>
-        <% garment.photos.each do |photo| %>
-          <div class="garment-image-wrapper">
-            <%= cl_image_tag photo.key, class: 'card-garment-img', alt: garment.title %>
-          </div>
-        <% end %>
-      <% else %>
-        <div class="garment-image-wrapper">
-          <%= cl_image_tag garment.photos.first.key, class:"card-garment-img", alt: garment.title %>
-        </div>
-      <% end %>
-
-      <div class="card-garment-infos">
-        <p class="garment-title"><%= garment.title %></p>
-        <p class="card-garment-pricing">£<%= garment.price %></p>
-        <p class="garment-size">Size: <%= garment.size %></p>
-        <p class="garment-brand"><%= garment.brand %></p>
+  <div class="card-garment <%= 'show-page' if show_all_photos %> <%= 'sold-out' if garment.sold? %>">
+    <% if garment.cloudinary_photos.present? %>
+      <div class="garment-image-wrapper">
+        <%= image_tag garment.cloudinary_photos.first, class: 'card-garment-img', alt: garment.title %>
       </div>
+    <% end %>
+
+    <div class="card-garment-infos">
+      <p class="garment-title"><%= garment.title %></p>
+      <p class="card-garment-pricing">£<%= garment.price %></p>
+      <p class="garment-size">Size: <%= garment.size %></p>
+      <p class="garment-brand"><%= garment.brand %></p>
     </div>
-  <% end %>
+  </div>
 <% end %>
