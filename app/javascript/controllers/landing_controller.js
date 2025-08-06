@@ -30,7 +30,7 @@ export default class extends Controller {
       target.textContent += text[this.currentChar]
       this.currentChar++
       this.moveCursorAfter(target)
-      setTimeout(() => this.typeNextChar(), 75)
+      setTimeout(() => this.typeNextChar(), 40)
     } else {
       this.currentLine++
       this.currentChar = 0
