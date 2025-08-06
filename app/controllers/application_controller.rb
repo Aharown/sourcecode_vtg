@@ -7,7 +7,10 @@ class ApplicationController < ActionController::Base
   helper_method :cart_count
 
 
-
+  def after_sign_in_path_for(resource)
+    resource.admin? ? rails_admin.dashboard_path : super
+  end
+  
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
