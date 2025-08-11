@@ -24,10 +24,19 @@ _garments.scss
   margin: 0;
   padding: 0 10px;
   position: relative;
-  font-family: 'VT323', monospace !important;
+  font-family: $font-mono;
   font-weight: 400;
   font-style: normal;
-  color: #39ff14;
+  color: $green-bright;
+  text-shadow: 0 0 1px $green-bright, 0 0 4px white;
+
+  @media (max-width: 767.98px) {
+    font-size: 1.3rem;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
 }
 
 .new-in-container::before,
@@ -52,10 +61,19 @@ _garments.scss
   margin: 0;
   padding: 0 10px;
   position: relative;
+  font-family: $font-mono;
   font-weight: 400;
   font-style: normal;
-  color: #39ff14;
-  font-family: 'VT323', monospace !important;
+  color: $green-bright;
+  text-shadow: 0 0 1px $green-bright, 0 0 4px white;
+
+  @media (max-width: 767.98px) {
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.3rem;
+  }
 }
 
 .the-ruby-edit-container::before,
@@ -230,7 +248,7 @@ _garments.scss
 
 @media (max-width: 576px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

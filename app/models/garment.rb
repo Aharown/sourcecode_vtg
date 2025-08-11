@@ -1,6 +1,6 @@
 class Garment < ApplicationRecord
   belongs_to :category
-  serialize :cloudinary_photos, Array, coder: JSON
+  serialize :cloudinary_photos, type: Array, coder: JSON
   attr_accessor :cloudinary_photos_raw
   attribute :price, default: 0.0
   validates :stock_quantity, numericality: { greater_than_or_equal_to: 0 }
@@ -22,7 +22,7 @@ class Garment < ApplicationRecord
 
     input = cloudinary_photos_raw.strip
 
- 
+
     if (input.start_with?('[') && input.end_with?(']'))
       begin
         parsed = JSON.parse(input)
