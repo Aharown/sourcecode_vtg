@@ -235,9 +235,21 @@ $font-mono: 'VT323', monospace;
   }
 }
 
+@media (min-width: 768px) {
+  .search-container {
+    transform: translateX(-265px);
+  }
+}
+
 .search-form-control {
   position: relative;
   margin-right: 60px;
+}
+
+@media (min-width: 768px) {
+  .search-form-control {
+    margin-left: -30px;
+  }
 }
 
 .search-offset {
