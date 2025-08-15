@@ -15,7 +15,6 @@ $font-mono: 'VT323', monospace;
   100% { background-position: 100% 50%; }
 }
 
-
 .navbar-sourcecode {
   background: $black;
   width: 100%;
@@ -39,6 +38,15 @@ $font-mono: 'VT323', monospace;
   }
 }
 
+.logo, .icons {
+  flex: 0 0 auto;
+}
+
+.icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .pages-home .navbar {
   display: none;
 }
@@ -48,8 +56,9 @@ $font-mono: 'VT323', monospace;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
+  justify-content: space-between;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -85,6 +94,68 @@ $font-mono: 'VT323', monospace;
         margin-left: 0.5rem;
       }
     }
+
+    .navbar-brand-name {
+      white-space: nowrap;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    min-height: 71px;
+
+    .search-container {
+      order: 1;
+      flex: 0 0 auto;
+      max-width: 150px;
+      margin-right: 0.5rem;
+    }
+
+    .navbar-brand {
+      order: 2;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      transform: none !important;
+      margin-left: 28px !important;
+    }
+
+    .navbar-toggler {
+      order: 3;
+      margin-left: 0;
+      position: static;
+      transform: translateX(45px);
+    }
+
+    .cart-container {
+      order: 4;
+      margin-left: auto;
+      transform: translateY(1px) translateX(50px);
+    }
+  }
+
+  .navbar-sourcecode {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .navbar-toggler {
+    display: block !important;
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+    padding: 0.25rem 0.5rem;
+    background: transparent;
+    border: none;
   }
 }
 
@@ -113,7 +184,7 @@ $font-mono: 'VT323', monospace;
   height: 22px;
 
   @media (max-width: 767.98px) {
-    transform: scale(0.9);
+    transform: scale(1);
   }
 }
 
@@ -225,29 +296,44 @@ $font-mono: 'VT323', monospace;
   }
 }
 
+@media (max-width: 900px) and (min-width: 768px) {
+  .dropdown {
+    margin-right: 6px;
+
+    .btn-outline-secondary {
+      width: 200px;
+    }
+  }
+}
+
 .search-container {
-  width: 500px;
+  flex: 1 1 500px;
+  margin: 0 0.75rem;
+  min-width: 200px;
+  max-width: 500px;
+  transition: width 0.3s ease;
 
   @media (max-width: 768px) {
     width: 100%;
     max-width: 250px;
     margin-right: 0;
   }
-}
 
-@media (min-width: 768px) {
-  .search-container {
-    transform: translateX(-265px);
+  @media (min-width: 768px) {
+    transform: none;
   }
 }
 
 .search-form-control {
   position: relative;
   margin-right: 60px;
-}
 
-@media (min-width: 768px) {
-  .search-form-control {
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) {
     margin-left: -30px;
   }
 }
@@ -288,35 +374,47 @@ $font-mono: 'VT323', monospace;
 
 .overlay-content {
   text-align: left;
-  color: #00ff00;
-  font-family: 'VT323', monospace;
+  color: $green;
+  font-family: $font-mono;
 }
 
 .overlay-title {
   font-size: 2rem;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
-  padding: 0;
+  margin: 0 0 1.5rem 0;
   text-align: left;
 }
 
 .category-list {
   list-style: none;
   padding: 0;
+
+  li {
+    display: flex;
+    justify-content: flex-start;
+
+    .overlay-link {
+      display: inline-block;
+      width: auto;
+      max-width: 100%;
+      padding: 0.25rem 0;
+      white-space: nowrap;
+    }
+  }
 }
 
 .overlay-link {
   display: block;
   font-size: 1.4rem;
-  color: #00ff00;
+  color: $green;
   text-decoration: none;
   margin-bottom: 0.5rem;
 
   &:hover {
-    color: #39ff14;
-    text-shadow: 0 0 4px #00ff00;
+    color: $green-bright;
+    text-shadow: 0 0 4px $green;
   }
 }
+
 .terminal-input {
   background-color: black;
   color: $green !important;
@@ -333,11 +431,7 @@ $font-mono: 'VT323', monospace;
     opacity: 0.7;
   }
 
-  &:hover {
-    box-shadow: 0 0 10px rgba(200, 200, 200, 0.7);
-  }
-
-  &:focus {
+  &:hover, &:focus {
     outline: none;
     background-color: black !important;
     box-shadow: 0 0 10px rgba(200, 200, 200, 0.7) !important;
@@ -351,19 +445,6 @@ $font-mono: 'VT323', monospace;
     transition: background-color 9999s ease-in-out 0s !important;
     font-family: $font-mono !important;
   }
-}
-
-.category-list li {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.category-list li .overlay-link {
-  display: inline-block;
-  width: auto;
-  max-width: 100%;
-  padding: 0.25rem 0;
-  white-space: nowrap;
 }
 
 .blinking-underscore {
