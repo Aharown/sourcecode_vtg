@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create_checkout_session]  # Temporarily skip CSRF token check for testing
+  skip_before_action :verify_authenticity_token, only: [:create_checkout_session]
 
   def create_checkout_session
     cart_items = session[:cart].map do |id, quantity|
@@ -10,11 +10,33 @@ class PaymentsController < ApplicationController
       }
     end
 
+    allowed_countries = Stripe::CountrySpec.list.data.map(&:id)
+
+    domestic_rates = [
+      { shipping_rate: "shr_1RwlLk09wjVeLyNkEFJflxWa" },
+      { shipping_rate: "shr_1RwlJz09wjVeLyNkXmnG9Kdp" }
+    ]
+    international_rate = { shipping_rate: "shr_1RwmNX09wjVeLyNkB9QFStDx" }
+
+
+
+    user_country = params[:country] || "GB"
+
+    shipping_options = if user_country == "GB"
+                         domestic_rates + [international_rate]
+                       else
+                         [international_rate] 
+                       end
+
     checkout_session = Stripe::Checkout::Session.create(
       ui_mode: 'embedded',
       line_items: cart_items,
       mode: 'payment',
       return_url: "#{thank_you_url}?session_id={CHECKOUT_SESSION_ID}",
+      shipping_address_collection: {
+        allowed_countries: allowed_countries
+      },
+      shipping_options: shipping_options,
       metadata: {
         garment_ids: cart_items.map.with_index { |item, i| session[:cart].keys[i] }.join(',')
       }
