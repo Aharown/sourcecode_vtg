@@ -1,6 +1,10 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create_checkout_session]
 
+  ALLOWED_COUNTRIES = %w[
+    GB US FR IE DE CA AU NZ JP CH
+  ].freeze
+
   def create_checkout_session
     cart_items = session[:cart].map do |id, quantity|
       garment = Garment.find(id)
@@ -10,17 +14,11 @@ class PaymentsController < ApplicationController
       }
     end
 
-    all_countries = ISO3166::Country.codes
-    stripe_countries = Stripe::CountrySpec.list.data.map(&:id)
-    allowed_countries = all_countries & stripe_countries
-
     domestic_rates = [
       { shipping_rate: "shr_1RwlJz09wjVeLyNkXmnG9Kdp" },
       { shipping_rate: "shr_1RwlLk09wjVeLyNkEFJflxWa" }
     ]
     international_rate = { shipping_rate: "shr_1RwmNX09wjVeLyNkB9QFStDx" }
-
-
 
     user_country = params[:country] || "GB"
 
@@ -36,7 +34,7 @@ class PaymentsController < ApplicationController
       mode: 'payment',
       return_url: "#{thank_you_url}?session_id={CHECKOUT_SESSION_ID}",
       shipping_address_collection: {
-        allowed_countries: allowed_countries
+        allowed_countries: ALLOWED_COUNTRIES
       },
       shipping_options: shipping_options,
       metadata: {
