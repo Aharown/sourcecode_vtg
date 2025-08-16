@@ -13,8 +13,8 @@ class PaymentsController < ApplicationController
     allowed_countries = Stripe::CountrySpec.list.data.map(&:id)
 
     domestic_rates = [
-      { shipping_rate: "shr_1RwlLk09wjVeLyNkEFJflxWa" },
-      { shipping_rate: "shr_1RwlJz09wjVeLyNkXmnG9Kdp" }
+      { shipping_rate: "shr_1RwlJz09wjVeLyNkXmnG9Kdp" },
+      { shipping_rate: "shr_1RwlLk09wjVeLyNkEFJflxWa" }
     ]
     international_rate = { shipping_rate: "shr_1RwmNX09wjVeLyNkB9QFStDx" }
 
@@ -25,7 +25,7 @@ class PaymentsController < ApplicationController
     shipping_options = if user_country == "GB"
                          domestic_rates + [international_rate]
                        else
-                         [international_rate] 
+                         [international_rate]
                        end
 
     checkout_session = Stripe::Checkout::Session.create(
