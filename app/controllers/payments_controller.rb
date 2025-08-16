@@ -1,7 +1,6 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create_checkout_session]
 
-  # List all countries you want to ship to
   ALLOWED_COUNTRIES = %w[
     GB US FR IE DE CA AU NZ JP CH
   ].freeze
