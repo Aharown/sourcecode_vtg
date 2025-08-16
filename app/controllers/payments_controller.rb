@@ -10,7 +10,9 @@ class PaymentsController < ApplicationController
       }
     end
 
-    allowed_countries = Stripe::CountrySpec.list.data.map(&:id)
+    all_countries = ISO3166::Country.codes
+    stripe_countries = Stripe::CountrySpec.list.data.map(&:id)
+    allowed_countries = all_countries & stripe_countries
 
     domestic_rates = [
       { shipping_rate: "shr_1RwlJz09wjVeLyNkXmnG9Kdp" },
