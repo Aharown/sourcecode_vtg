@@ -189,20 +189,16 @@ body {
 .pill-button {
   margin-top: 2rem;
   padding: 0.4rem 2rem;
-  background-color: #E60026;
-  color: black;
-  border: none;
+  background-color: black;
+  color: #A50021;             
+  border: 1px solid #A50021;
   border-radius: 999px;
   font-size: 1.2rem;
   cursor: pointer;
   text-decoration: none;
   font-family: 'VT323', monospace;
-  transition: background-color 0.3s;
+  transition: color 0.3s, border-color 0.3s;
   z-index: 2;
-
-  &:hover {
-    background-color: #cc0029;
-  }
 
   &--small {
     padding: 0.3rem 1.2rem;
@@ -210,12 +206,29 @@ body {
     height: 2.4rem;
     border-radius: 3px;
   }
+
+  &[disabled] {
+    background-color: black;
+    color: #A50021;
+    border: 1px solid #A50021;
+    cursor: default !important;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &:not([disabled]):hover {
+    color: #FF0000;
+    border-color: #FF0000;
+  }
 }
 
-.pill-button[disabled] {
-  background-color: #cc0029;
-  cursor: default !important;
-  opacity: 0.6;
+#enter-button {
+  border: 2px solid red;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #cc0029;
+  }
 }
 
 .hidden {

@@ -1,6 +1,6 @@
-RUBY GARMENTS
+SOURCECODE_VTG – Vintage Streetwear Store
 
-An online marketplace where users can list and rent high-end garments. This platform allows users to share their wardrobe and access luxury fashion at an affordable price.
+An e-commerce web application for vintage streetwear with a Matrix CRT aesthetic, built with Ruby on Rails. Users can browse garments, add them to a cart, and securely checkout using Stripe Embedded Payments.
 
 ![Ruby Garments Home Page GIF](https://github.com/Aharown/ruby_garments/blob/master/app/assets/images/Ruby%20Garments%20home%20page%20gif.gif)
 
@@ -26,4 +26,3 @@ An online marketplace where users can list and rent high-end garments. This plat
 	•	Implement Stripe functionality for secure transactions
 	•	Add rating and booking system for garments
 	•	Improve search and filtering functionality
-

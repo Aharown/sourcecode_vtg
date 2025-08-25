@@ -50,14 +50,14 @@ _garments.scss
   opacity: 0.8;
 }
 
-.the-ruby-edit-container {
+.all-pieces-container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 50px 0;
 }
 
-.the-ruby-edit-container h3 {
+.all-pieces-container h3 {
   margin: 0;
   padding: 0 10px;
   position: relative;
@@ -76,8 +76,8 @@ _garments.scss
   }
 }
 
-.the-ruby-edit-container::before,
-.the-ruby-edit-container::after {
+.all-pieces-container::before,
+.all-pieces-container::after {
   content: "";
   flex-grow: 1;
   height: 1px;

@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   resources :garments, only: [:index, :show, :new, :edit, :create, :destroy, :update] do
     member do
       post :purchase
+      patch :toggle_new_in
+    end
+    collection do
+      patch :clear_new_in
     end
   end
 
@@ -35,7 +39,6 @@ Rails.application.routes.draw do
   get "/shipping", to: "static_pages#shipping", as: :shipping
   get "/contact",  to: "static_pages#contact",  as: :contact
   get "/terms",    to: "static_pages#terms",    as: :terms
-  # root "garments#index"
 
   resources :pages
   resources :users, only: [:show]

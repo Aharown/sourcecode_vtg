@@ -78,3 +78,30 @@ body.landing-page {
   position: relative;
   z-index: 2;
 }
+
+
+.enter-button {
+  margin-top: 2rem;
+  padding: 0.4rem 2rem;
+  background-color: #DA2C43;
+  color: black;
+  border: none;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'VT323', monospace;
+  transition: background-color 0.3s;
+  z-index: 2;
+
+  &:hover {
+    background-color: #cc0029;
+  }
+
+  &--small {
+    padding: 0.3rem 1.2rem;
+    font-size: 1rem;
+    height: 2.4rem;
+    border-radius: 3px;
+  }
+}
