@@ -14,6 +14,18 @@ class GarmentsController < ApplicationController
     else
       @garments = Garment.all
     end
+    @new_in_garments = Garment.where(new_in: true)
+  end
+
+  def toggle_new_in
+    @garment = Garment.find(params[:id])
+    @garment.update(new_in: !@garment.new_in)
+    redirect_to garments_path
+  end
+
+  def clear_new_in
+    Garment.update_all(new_in: false)
+    redirect_to garments_path
   end
 
   def show

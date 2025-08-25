@@ -9,7 +9,7 @@ export default class extends Controller {
       { text: "Decode vintage. Download style.", target: this.line2Target }
     ]
     this.cursor = document.getElementById("cursor")
-    this.button = this.element.querySelector(".pill-button")
+    this.button = this.element.querySelector(".enter-button")
     this.button.style.display = "none"
     this.currentLine = 0
     this.currentChar = 0
