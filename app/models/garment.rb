@@ -6,7 +6,6 @@ class Garment < ApplicationRecord
   validates :stock_quantity, numericality: { greater_than_or_equal_to: 0 }
   before_validation :set_default_stock_quantity, on: :create
   before_validation :parse_cloudinary_photos_raw
-  scope :new_in, -> { where(new_in: true) }
 
   def sold?
     sold
