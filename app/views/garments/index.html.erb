@@ -9,52 +9,86 @@
       <div class="new-in-container">
         <h3>&gt; searching for "<%= params[:search][:query] %>"...</h3>
       </div>
+
+      <% if @garments.any? %>
+        <div class="grid">
+          <% @garments.each do |garment| %>
+            <%= render partial: "garment", locals: { garment: garment, show_all_photos: false } %>
+            <% if current_user&.admin? %>
+              <%= button_to(
+                    garment.new_in? ? "Remove from New In" : "Add to New In",
+                    toggle_new_in_garment_path(garment),
+                    method: :patch
+                  ) %>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <p>Outside the construct "<%= params[:search][:query] %>".</p>
+      <% end %>
+
     <% elsif @selected_category.present? %>
       <div class="new-in-container">
         <h3><%= @selected_category.name %></h3>
       </div>
-    <% elsif @new_in_garments.any? %>
-      <div class="new-in-container">
-        <h3>New in</h3>
-      </div>
 
-      <div class="grid">
-        <% @new_in_garments.each do |garment| %>
-          <%= render partial: "garment", locals: { garment: garment, show_all_photos: false } %>
-
-          <% if current_user&.admin? %>
-            <%= button_to(
-                  garment.new_in? ? "Remove from New In" : "Add to New In",
-                  toggle_new_in_garment_path(garment),
-                  method: :patch
-                ) %>
+      <% if @garments.any? %>
+        <div class="grid">
+          <% @garments.each do |garment| %>
+            <%= render partial: "garment", locals: { garment: garment, show_all_photos: false } %>
+            <% if current_user&.admin? %>
+              <%= button_to(
+                    garment.new_in? ? "Remove from New In" : "Add to New In",
+                    toggle_new_in_garment_path(garment),
+                    method: :patch
+                  ) %>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-    <% end %>
-    
-    <div class="all-pieces-container">
-      <h3>All Pieces</h3>
-    </div>
-
-    <div class="grid">
-      <% @garments.each do |garment| %>
-        <%= render partial: "garment", locals: { garment: garment, show_all_photos: false } %>
-
-        <% if current_user&.admin? %>
-          <%= button_to(
-                garment.new_in? ? "Remove from New In" : "Add to New In",
-                toggle_new_in_garment_path(garment),
-                method: :patch
-              ) %>
-        <% end %>
+        </div>
+      <% else %>
+        <p>No garments found.</p>
       <% end %>
-    </div>
 
-    <% if @garments.empty? && params.dig(:search, :query).present? %>
-      <p>Outside the construct "<%= params[:search][:query] %>".</p>
-    <% elsif @garments.empty? %>
-      <p>No garments found.</p>
+    <% else %>
+      <% if @new_in_garments.any? %>
+        <div class="new-in-container">
+          <h3>New in</h3>
+        </div>
+
+        <div class="grid">
+          <% @new_in_garments.each do |garment| %>
+            <%= render partial: "garment", locals: { garment: garment, show_all_photos: false } %>
+            <% if current_user&.admin? %>
+              <%= button_to(
+                    garment.new_in? ? "Remove from New In" : "Add to New In",
+                    toggle_new_in_garment_path(garment),
+                    method: :patch
+                  ) %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="all-pieces-container">
+        <h3>All Pieces</h3>
+      </div>
+
+      <% if @garments.any? %>
+        <div class="grid">
+          <% @garments.each do |garment| %>
+            <%= render partial: "garment", locals: { garment: garment, show_all_photos: false } %>
+            <% if current_user&.admin? %>
+              <%= button_to(
+                    garment.new_in? ? "Remove from New In" : "Add to New In",
+                    toggle_new_in_garment_path(garment),
+                    method: :patch
+                  ) %>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <p>No garments found.</p>
+      <% end %>
     <% end %>
   </div>
 </div>
