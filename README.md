@@ -35,7 +35,7 @@ Seamless and secure checkout powered by Stripe Embedded Payments.
 ### Mobile Optimized
 Fully responsive CRT-inspired design on mobile.
 
-![Mobile Demo](app/assets/images/sourcecode_vtg_mobile.gif)
+![Mobile Demo](app/assets/images/sourcecode_vtg_gif4_mobile.gif)
 
 ---
 
