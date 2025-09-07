@@ -1,4 +1,6 @@
-SOURCECODE_VTG – Vintage Streetwear Store
+# SOURCECODE_VTG – Vintage Streetwear Store
+
+https://sourcecodevtg.xyz
 
 An e-commerce web application for vintage streetwear with a Matrix CRT aesthetic, built with Ruby on Rails. Users can browse garments, add them to a cart, and securely checkout using Stripe Embedded Payments.
 
@@ -33,7 +35,7 @@ Seamless and secure checkout powered by Stripe Embedded Payments.
 ---
 
 ### Mobile Optimized
-Fully responsive CRT-inspired design on mobile.
+Fully responsive on mobile.
 
 ![Mobile Demo](app/assets/images/sourcecode_vtg_gif4_mobile.gif)
 
@@ -52,7 +54,6 @@ Fully responsive CRT-inspired design on mobile.
 - [Ruby on Rails](https://rubyonrails.org/) – backend framework
 - [PostgreSQL](https://www.postgresql.org/) – database
 - [Bootstrap](https://getbootstrap.com/) – responsive styling
-- [Turbo](https://turbo.hotwired.dev/) – fast page navigation
 - [Stripe](https://stripe.com/) – embedded checkout
 
 ---
