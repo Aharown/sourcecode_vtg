@@ -190,7 +190,7 @@ body {
   margin-top: 2rem;
   padding: 0.4rem 2rem;
   background-color: black;
-  color: #A50021;             
+  color: #A50021;
   border: 1px solid #A50021;
   border-radius: 999px;
   font-size: 1.2rem;
@@ -344,6 +344,9 @@ a {
   gap: 0;
 }
 
+.checkout-container {
+  padding: 2rem; /* adds space on all sides */
+}
 
 @media (min-width: 768px) {
   .cart-empty-text {
