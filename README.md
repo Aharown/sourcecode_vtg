@@ -65,6 +65,10 @@ Fully responsive on mobile.
 - Rails `7.x`
 - PostgreSQL
 
+The app is fully browsable without third-party accounts.
+To test checkout, you'll need a Stripe account (see Stripe Setup below).
+To upload new garment images, you'll need a Cloudinary account.
+
 ### Setup
 ```bash
 # Clone the repo
@@ -79,3 +83,9 @@ rails db:create db:migrate db:seed
 
 # Start the server
 bin/dev
+
+### Stripe Setup (required for checkout)
+1. Create an account at stripe.com
+2. Copy your test mode API keys into `.env`
+3. To test webhooks locally, install the Stripe CLI and run:
+   stripe listen --forward-to localhost:3000/webhooks/stripe
